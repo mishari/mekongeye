@@ -1,5 +1,5 @@
 <?php
 // Include Story
-require_once(STYLESHEETPATH . '/inc/story.php');
+require_once(STYLESHEETPATH . '/inc/article.php');
 
 ?>
