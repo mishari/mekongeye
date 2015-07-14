@@ -25,10 +25,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-
-<link rel="stylesheet" href="/wp-content/themes/mekongeye/assets/css/main.css" />
 <script src="/wp-content/themes/mekongeye/assets/javascript/vendor/modernizr-2.8.3.min.js"></script>
 
 
