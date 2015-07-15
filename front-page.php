@@ -26,12 +26,12 @@
 						if ($term_idx == 0)
 						{
 							$story_idx = -1;
-							foreach($stories as $story):
-																
+							foreach($stories as $story_id):
 								$story_idx = $story_idx + 1;
 								
-								$id = $story->id;
+								$id = $story_id;
 								$permalink = get_permalink( $id );
+								$small_image = get_field('small_image', $id)["sizes"]["large"];
 								$large_image = get_field('large_image', $id)["sizes"]["large"];
 								$kicker = "";
 								if ( get_field('eye_original',$id) ){
@@ -63,10 +63,32 @@
 			                            </a>
 			                        </article>
 			                    </div>
+								<!-- begin slice -->
+								<div class="sc-slice size-md format-3col ">
 
 					<?php
 								}
+								else
+								{
+									?>
+			                        <article class="sc-story option-image">
+			                            <a href="<?php echo $permalink; ?>">
+			                                <div class="sc-story__hd">
+			                                    <img src="<?php echo $small_image; ?>" alt="story preview">
+			                                </div>
+			                                <div class="sc-story__bd">
+			                                    <?php echo $kicker; ?>
+			                                    <h4><?php echo $title; ?></h4>
+			                                    <p class="dateline"><?php echo $dateline; ?></p>
+			                                </div>
+			                            </a>
+			                        </article>
+							<?php
+								}
 							endforeach;
+							?> </div> <!-- end slice -->
+
+						 <?php
 						} 
 				?>
 						
@@ -77,54 +99,6 @@
 				endforeach;
 
 				?>
-
-
-                    <!-- begin slice -->
-                    <div class="sc-slice size-md format-3col ">
-
-                        <article class="sc-story option-image">
-                            <a href="#">
-                                <div class="sc-story__hd">
-                                    <img src="./images/samples/ship-64x64px.jpg" alt="story preview">
-                                </div>
-                                <div class="sc-story__bd">
-                                    <p class="kicker">Eye Original</p>
-                                    <h4>Small story hed goes here spot for story</h4>
-                                    <p class="dateline">25 May 2015</p>
-                                </div>
-                            </a>
-                        </article>
-
-                        <article class="sc-story option-image">
-                            <a href="#">
-                                <div class="sc-story__hd">
-                                    <img src="./images/samples/pelicans-64x64px.jpg" alt="story preview">
-                                </div>
-                                <div class="sc-story__bd">
-                                    <h4>Small story hed goes here spot for story</h4>
-                                    <p class="dateline">25 May 2015, <i>External Site Name</i> <img src="./images/arrow-new-site.png" alt=""></p>
-                                </div>
-                            </a>
-                        </article>
-
-                        <article class="sc-story option-image">
-                            <a href="#">
-                                <div class="sc-story__hd">
-                                    <img src="./images/preview-64x64px.jpg" alt="story preview">
-                                </div>
-                                <div class="sc-story__bd">
-                                    <p class="kicker">Opinion</p>
-                                    <h4>Small story hed goes here spot for story</h4>
-                                    <p class="dateline">25 May 2015</p>
-                                </div>
-                            </a>
-                        </article>
-
-                    </div>
-                    <!-- end slice -->
-
-
-
 
     			<!-- begin story container -->
     			<section class="sc-container">
