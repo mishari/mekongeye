@@ -1,10 +1,4 @@
 <?php get_header(); ?>
-
-		<pre>
-		<!-- start test -->
-		<?php print_r(get_terms("sections")); ?>
-		<!-- end test -->
-		</pre>
 		
 		<div class="main">
 
@@ -16,36 +10,57 @@
 
 				<?php
 		
-				$term_number = 0;
+				$term_idx = -1;
 				foreach(get_terms("sections") as $term):
+					$term_idx = $term_idx + 1;
 					
-					$container_id = ($term_number == 0) ? 'lede' : $term->slug;
-
+					// First loop is lede
+					$container_id = ($term_idx == 0) ? 'lede' : $term->slug;
+					$stories = get_objects_in_term( $term->term_id, "sections" );
 				?>
 	    			<!-- begin story container -->				
 					<section class="sc-container" id="<?php echo $container_id ?>" >
+						<?php
+						
+						if ($term_idx == 0)
+						{
+							$story_idx = -1;
+							foreach($stories as $story):
+																
+								$story_idx = $story_idx + 1;
+								
+								$id = $story->id;
+								$permalink = get_permalink( $id );
+								$large_image = get_field('large_image', $id)["sizes"]["large"];
+								
+								if ($story_idx == 0) {
+						?>
+			                    <!-- begin slice -->
+			                    <div class="sc-slice size-xl">
+			                        <article class="sc-story option-image">
+			                            <a href="<?php echo $permalink; ?>">
+			                                <div class="sc-story__hd">
+			                                    <img src="<?php echo $large_image; ?>" alt="story preview">
+			                                </div>
+			                                <div class="sc-story__bd">
+			                                    <p class="kicker">Eye Original</p>
+			                                    <h4>Small story hed goes here spot for story</h4>
+			                                    <p class="dateline">25 May 2015</p>
+			                                </div>
+			                            </a>
+			                        </article>
+			                    </div>
 
-	                    <!-- begin slice -->
-	                    <div class="sc-slice size-xl">
-	                        <article class="sc-story option-image">
-	                            <a href="#">
-	                                <div class="sc-story__hd">
-	                                    <img src="./images/samples/boat-1080px.jpg" alt="story preview">
-	                                </div>
-	                                <div class="sc-story__bd">
-	                                    <p class="kicker">Eye Original</p>
-	                                    <h4>Small story hed goes here spot for story</h4>
-	                                    <p class="dateline">25 May 2015</p>
-	                                </div>
-	                            </a>
-	                        </article>
-	                    </div>
-
+					<?php
+								}
+							endforeach;
+						} 
+				?>
+						
 					
 	                </section>
 	                <!-- end story container -->
 				<?php
-				$term_number = $term_number + 1;
 				endforeach;
 
 				?>
