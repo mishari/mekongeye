@@ -1,6 +1,6 @@
 <?php
 // Include Article
-require_once(STYLESHEETPATH . '/inc/article.php');
+require_once(STYLESHEETPATH . '/inc/story.php');
 
 // Include Collection
 require_once(STYLESHEETPATH . '/inc/collection.php');
