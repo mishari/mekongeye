@@ -1,5 +1,11 @@
 <?php get_header(); ?>
 
+		<pre>
+		<!-- start test -->
+		<?php print_r(get_terms("sections")); ?>
+		<!-- end test -->
+		</pre>
+		
 		<div class="main">
 
 		<!-- anchor used by jump-to nav, needed for accessibility -->
@@ -8,7 +14,42 @@
             <!-- begin left column -->
             <div id="stories-left">
 
-                <section class="sc-container" id="lede">
+				<?php
+		
+				$term_number = 0;
+				foreach(get_terms("sections") as $term):
+					
+					$container_id = ($term_number == 0) ? 'lede' : $term->slug;
+
+				?>
+	    			<!-- begin story container -->				
+					<section class="sc-container" id="<?php echo $container_id ?>" >
+
+	                    <!-- begin slice -->
+	                    <div class="sc-slice size-xl">
+	                        <article class="sc-story option-image">
+	                            <a href="#">
+	                                <div class="sc-story__hd">
+	                                    <img src="./images/samples/boat-1080px.jpg" alt="story preview">
+	                                </div>
+	                                <div class="sc-story__bd">
+	                                    <p class="kicker">Eye Original</p>
+	                                    <h4>Small story hed goes here spot for story</h4>
+	                                    <p class="dateline">25 May 2015</p>
+	                                </div>
+	                            </a>
+	                        </article>
+	                    </div>
+
+					
+	                </section>
+	                <!-- end story container -->
+				<?php
+				$term_number = $term_number + 1;
+				endforeach;
+
+				?>
+                
 
                     <!-- begin slice -->
                     <div class="sc-slice size-xl">
@@ -71,8 +112,7 @@
                     </div>
                     <!-- end slice -->
 
-                </section>
-                <!-- end story container -->
+
 
 
     			<!-- begin story container -->
