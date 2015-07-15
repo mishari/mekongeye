@@ -17,6 +17,7 @@
 					// First loop is lede
 					$container_id = ($term_idx == 0) ? 'lede' : $term->slug;
 					$stories = get_objects_in_term( $term->term_id, "sections" );
+
 				?>
 	    			<!-- begin story container -->				
 					<section class="sc-container" id="<?php echo $container_id ?>" >
@@ -32,6 +33,18 @@
 								$id = $story->id;
 								$permalink = get_permalink( $id );
 								$large_image = get_field('large_image', $id)["sizes"]["large"];
+								$kicker = "";
+								if ( get_field('eye_original',$id) ){
+									
+									$kicker = '<p class="kicker">Eye Original</p>';
+									
+								}
+								
+								$title = get_the_title( $id );
+								
+								$date = DateTime::createFromFormat('Ymd', get_field('dateline', $id));
+								$dateline = $date->format('d F Y');
+								
 								
 								if ($story_idx == 0) {
 						?>
@@ -43,9 +56,9 @@
 			                                    <img src="<?php echo $large_image; ?>" alt="story preview">
 			                                </div>
 			                                <div class="sc-story__bd">
-			                                    <p class="kicker">Eye Original</p>
-			                                    <h4>Small story hed goes here spot for story</h4>
-			                                    <p class="dateline">25 May 2015</p>
+			                                    <?php echo $kicker; ?>
+			                                    <h4><?php echo $title; ?></h4>
+			                                    <p class="dateline"><?php echo $dateline; ?></p>
 			                                </div>
 			                            </a>
 			                        </article>
