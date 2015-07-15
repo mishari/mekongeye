@@ -27,4 +27,24 @@ function mekongeye_styles() {
 }
 add_action('wp_enqueue_scripts', 'mekongeye_styles', 15);
 
+function sections_init() {
+	// create a new taxonomy
+	register_taxonomy(
+		'sections',
+		'post',
+		array(
+			'label' => __( 'Sections' ),
+			'rewrite' => array( 'slug' => 'section'),
+			'hierarchical'=> true,
+			'capabilities' => array(
+					'manage__terms' => 'edit_posts',
+				    'edit_terms' => 'manage_categories',
+				    'delete_terms' => 'manage_categories',
+				    'assign_terms' => 'edit_posts'
+				)
+		)
+	);
+}
+add_action( 'init', 'sections_init' );
+
 ?>
