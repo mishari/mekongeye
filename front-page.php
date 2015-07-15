@@ -1,16 +1,5 @@
 <?php get_header(); ?>
 
-<div class="container">
-
-		<header class="global-header">
-			<div class="nameplate" id="nameplate">
-				<h1><a href="/">The Mekong Eye</a></h1>
-			</div>
-			<nav class="global-nav">
-				<?php wp_nav_menu(); ?>
-			</nav>
-		</header>
-
 		<div class="main">
 
 		<!-- anchor used by jump-to nav, needed for accessibility -->
@@ -745,37 +734,5 @@
 
 		</div>
         <!-- end main -->
-
-		
-
-				<footer class="global-footer">
-
-					<nav class="footer-nav">
-
-						<ul>
-
-							<li><a href="/">home</a></li>
-
-							<li><a href="#nameplate">top of page</a></li>
-
-						</ul>
-
-					</nav>
-
-					<div class="footer-contact">
-
-						<p>
-
-						</p>
-
-					</div>
-
-				</footer>
-
-		
-
-
-	</div>
-    <!-- end container -->
 
 <?php get_footer(); ?>
