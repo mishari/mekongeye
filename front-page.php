@@ -77,23 +77,6 @@
 				endforeach;
 
 				?>
-                
-
-                    <!-- begin slice -->
-                    <div class="sc-slice size-xl">
-                        <article class="sc-story option-image">
-                            <a href="#">
-                                <div class="sc-story__hd">
-                                    <img src="./images/samples/boat-1080px.jpg" alt="story preview">
-                                </div>
-                                <div class="sc-story__bd">
-                                    <p class="kicker">Eye Original</p>
-                                    <h4>Small story hed goes here spot for story</h4>
-                                    <p class="dateline">25 May 2015</p>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
 
 
                     <!-- begin slice -->
