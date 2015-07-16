@@ -17,6 +17,7 @@
 					// First loop is lede
 					$container_id = ($term_idx == 0) ? 'lede' : $term->slug;
 					$stories = get_objects_in_term( $term->term_id, "sections" );
+					$term_link = get_term_link( $term );
 
 				?>
 	    			<!-- begin story container -->				
@@ -66,11 +67,11 @@
 								<!-- begin slice -->
 								<div class="sc-slice size-md format-3col ">
 
-					<?php
+								<?php
 								}
 								else
 								{
-									?>
+								?>
 			                        <article class="sc-story option-image">
 			                            <a href="<?php echo $permalink; ?>">
 			                                <div class="sc-story__hd">
@@ -85,21 +86,94 @@
 			                        </article>
 							<?php
 								}
+								// end foreach story
 							endforeach;
 							?> </div> <!-- end slice -->
 
 						 <?php
-						} 
-				?>
+						 // if term != 0
+						} else {
+							print '<h2><a href="'.$term_link.'">'.$term->name.'</h2>';
+							
+							$story_idx = -1;
+							foreach($stories as $story_id):
+								$story_idx = $story_idx + 1;
+								
+								$id = $story_id;
+								$permalink = get_permalink( $id );
+								$small_image = get_field('small_image', $id)["sizes"]["large"];
+								$large_image = get_field('large_image', $id)["sizes"]["large"];
+								$kicker = "";
+								if ( get_field('eye_original',$id) ){
+									
+									$kicker = '<p class="kicker">Eye Original</p>';
+									
+								}
+								
+								$title = get_the_title( $id );
+								
+								$date = DateTime::createFromFormat('Ymd', get_field('dateline', $id));
+								$dateline = $date->format('d F Y');
+								
+								
+								if ($story_idx == 0) {
+						?>
+			                    <!-- begin slice -->
+			                    <div class="sc-slice size-xl">
+			                        <article class="sc-story option-image">
+			                            <a href="<?php echo $permalink; ?>">
+			                                <div class="sc-story__hd">
+			                                    <img src="<?php echo $large_image; ?>" alt="story preview">
+			                                </div>
+			                                <div class="sc-story__bd">
+			                                    <?php echo $kicker; ?>
+			                                    <h4><?php echo $title; ?></h4>
+			                                    <p class="dateline"><?php echo $dateline; ?></p>
+			                                </div>
+			                            </a>
+			                        </article>
+			                    </div>
+								<!-- begin slice -->
+								<div class="sc-slice size-md format-3col ">
+
+								<?php
+								}
+								else
+								{
+								?>
+			                        <article class="sc-story option-image">
+			                            <a href="<?php echo $permalink; ?>">
+			                                <div class="sc-story__hd">
+			                                    <img src="<?php echo $small_image; ?>" alt="story preview">
+			                                </div>
+			                                <div class="sc-story__bd">
+			                                    <?php echo $kicker; ?>
+			                                    <h4><?php echo $title; ?></h4>
+			                                    <p class="dateline"><?php echo $dateline; ?></p>
+			                                </div>
+			                            </a>
+			                        </article>
+							<?php
+								}
+								// end foreach story
+							endforeach;
+							?> </div> <!-- end slice -->
+						
+						<?php
+						}
+						?>
 						
 					
 	                </section>
 	                <!-- end story container -->
 				<?php
+				
+				//end get term
 				endforeach;
 
 				?>
 
+<hr/>
     			<!-- begin story container -->
     			<section class="sc-container">
 
