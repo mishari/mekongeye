@@ -5,6 +5,12 @@ require_once(STYLESHEETPATH . '/inc/story.php');
 // Include Collection
 require_once(STYLESHEETPATH . '/inc/collection.php');
 
+// Include Link
+require_once(STYLESHEETPATH . '/inc/link.php');
+
+// Include Sequence
+require_once(STYLESHEETPATH . '/inc/sequence.php');
+
 
 function mekongeye_styles() {
 
@@ -46,5 +52,59 @@ function sections_init() {
 	);
 }
 add_action( 'init', 'sections_init' );
+
+
+function create_story_taxonomies() {
+    $topic_labels = array(
+        'name'              => _x( 'Topics', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Topic', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Topics' ),
+        'all_items'         => __( 'All Topics' ),
+        'parent_item'       => __( 'Parent Topic' ),
+        'parent_item_colon' => __( 'Parent Topic:' ),
+        'edit_item'         => __( 'Edit Topic' ),
+        'update_item'       => __( 'Update Topic' ),
+        'add_new_item'      => __( 'Add New Topic' ),
+        'new_item_name'     => __( 'New Topic Name' ),
+        'menu_name'         => __( 'Topic' ),
+    );
+    $topic_args = array(
+        'hierarchical'          => true,
+        'labels'                => $topic_labels,
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'             => true,
+        'rewrite'               => array( 'slug' => 'topic' ),
+    );
+
+    register_taxonomy( 'topic', array('post', 'link', 'sequence', 'map'), $topic_args );
+
+    $region_labels = array(
+        'name'              => _x( 'Regions', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Region', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Regions' ),
+        'all_items'         => __( 'All Regions' ),
+        'parent_item'       => __( 'Parent Region' ),
+        'parent_item_colon' => __( 'Parent Region:' ),
+        'edit_item'         => __( 'Edit Region' ),
+        'update_item'       => __( 'Update Region' ),
+        'add_new_item'      => __( 'Add New Region' ),
+        'new_item_name'     => __( 'New Region Name' ),
+        'menu_name'         => __( 'Region' ),
+    );
+    $region_args = array(
+        'hierarchical'          => true,
+        'labels'                => $region_labels,
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'             => true,
+        'rewrite'               => array( 'slug' => 'region' ),
+    );
+
+    register_taxonomy( 'region', array('post', 'link', 'sequence', 'map'), $region_args );
+}
+add_action( 'init', 'create_story_taxonomies', 0 );
 
 ?>
