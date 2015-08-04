@@ -107,4 +107,98 @@ function create_story_taxonomies() {
 }
 add_action( 'init', 'create_story_taxonomies', 0 );
 
+function shortcode_posts( $atts ) {
+    extract( shortcode_atts( array(
+        'size' => 'medium',
+        'topic' => '',
+        'region' => '',
+        'exclude' => '',
+        'offset' => 0,
+        'id' => NULL,
+    ), $atts ) );
+
+    if ('' != $id) {
+        $post = get_post($id);
+        $html = $post->ID;
+    }
+
+    else {
+        if ($size == 'extra_large') {
+            $posts_per_page = 1;
+        }
+        elseif ($size == 'large') {
+            $posts_per_page = 2;
+        }
+        elseif ($size == 'medium') {
+            $posts_per_page = 4;
+        }
+        $args = array(
+            'posts_per_page'   => $posts_per_page,
+            'offset'           => $offset,
+            'orderby'          => 'post_date',
+            'order'            => 'DESC',
+            'exclude'          => $exclude,
+            'post_type'        => array('post', 'link', 'sequence', 'map'),
+            'post_status'      => 'publish',
+            'suppress_filters' => true,
+            'region'           => $region,
+            'topic'            => $topic
+        );
+        $posts = get_posts( $args );
+        if ($size == 'extra_large') {
+            $html .= '<div class="sc-slice size-xl">';
+        }
+        elseif ($size == 'large') {
+            $html .= '<div class="sc-slice size-lg">';
+        }
+        elseif ($size == 'medium') {
+            $html .= '<div class="sc-slice size-md format-3col">';
+        }
+        foreach ( $posts as $post ) {
+            $author_first_name = get_the_author_meta( 'first_name', $post->post_author );
+            $author_last_name = get_the_author_meta( 'last_name', $post->post_author );
+            
+            $html .= '<article class="sc-story option-image">';
+            if ($post->post_type == 'link') {
+                $link = get_post_meta($post->ID, 'link_target', true);
+                $html .= '<a href="' . $link .'">';
+            }
+            else {
+                $html .= '<a href="' . $post->guid .'">';
+            }
+            $html .= '<div class="sc-story__hd">';
+            if (has_post_thumbnail($post->ID)) {
+                $thumbnail = get_the_post_thumbnail( $post->ID );
+                $html .= $thumbnail;
+            }
+            else {
+                if ($size != 'medium') {
+                    if ($post->post_type == 'link') {
+                        $html .= $post->link_sub_title;
+                    }
+                    elseif ($post->post_type == 'post') {
+                        $html .= $post->story_sub_title;
+                    }
+                    elseif ($post->post_type == 'sequence') {
+                        $html .= $post->sequence_sub_title;
+                    }
+                }
+            }
+            $html .= '</div>';
+            $html .= '<div class="sc-story__bd">';
+            $html .= '<p class="kicker">' . $author_first_name . ' ' . $author_last_name . '</p>';
+            $html .= '<h4>' . $post->post_title . '</h4>';
+            $date = get_the_date( 'j M Y', $post->ID );
+            $html .= '<p class="dateline">' . $date . '</p>';
+            $html .= '</div>';
+            $html .= '</a>';
+            $html .= '</article>';
+        }
+        $html .= '</div>';
+    }
+    return $html;
+}
+
+add_shortcode( 'posts', 'shortcode_posts' );
+
 ?>
