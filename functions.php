@@ -147,12 +147,15 @@ function shortcode_posts( $atts ) {
         $posts = get_posts( $args );
         if ($size == 'extra_large') {
             $html .= '<div class="sc-slice size-xl">';
+            $img_size = array( 1080, 459);
         }
         elseif ($size == 'large') {
             $html .= '<div class="sc-slice size-lg">';
+            $img_size = array( 166, 166);
         }
         elseif ($size == 'medium') {
             $html .= '<div class="sc-slice size-md format-3col">';
+            $img_size = array( 64, 64);
         }
         foreach ( $posts as $post ) {
             $author_first_name = get_the_author_meta( 'first_name', $post->post_author );
@@ -168,7 +171,7 @@ function shortcode_posts( $atts ) {
             }
             $html .= '<div class="sc-story__hd">';
             if (has_post_thumbnail($post->ID)) {
-                $thumbnail = get_the_post_thumbnail( $post->ID );
+                $thumbnail = get_the_post_thumbnail( $post->ID, $img_size );
                 $html .= $thumbnail;
             }
             else {
