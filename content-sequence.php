@@ -2,7 +2,6 @@
 
 <?php if(have_posts()) : the_post(); ?>
 	<?php jeo_map();
-	$sequence_sub_title   = get_post_meta( $id, 'sequence_sub_title', true );
 	$author_first_name   = get_the_author_meta( 'first_name' );
 	$author_last_name   = get_the_author_meta( 'last_name' );
 	$sequence_image_1 = get_post_meta( $id, 'sequence_image_1', true );
@@ -19,7 +18,6 @@
 			<header class="story__hd">
 				<h3 class="kicker">Kicker</h3>
 				<h1><?php the_title(); ?></h1>
-				<h2 class="subhead"><?php echo $sequence_sub_title?></h2>
 			</header>
 			<div id="slider">
 				<figure>
