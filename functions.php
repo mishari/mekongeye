@@ -115,6 +115,7 @@ function shortcode_posts( $atts ) {
         'exclude' => '',
         'offset' => 0,
         'id' => NULL,
+        'class' => NULL,
     ), $atts ) );
 
     if ('' != $id) {
@@ -146,15 +147,15 @@ function shortcode_posts( $atts ) {
         );
         $posts = get_posts( $args );
         if ($size == 'extra_large') {
-            $html .= '<div class="sc-slice size-xl">';
+            $html .= '<div class="sc-slice size-xl ' . $class . '">';
             $img_size = array( 1080, 459);
         }
         elseif ($size == 'large') {
-            $html .= '<div class="sc-slice size-lg">';
+            $html .= '<div class="sc-slice size-lg ' . $class . '">';
             $img_size = array( 166, 166);
         }
         elseif ($size == 'medium') {
-            $html .= '<div class="sc-slice size-md format-3col">';
+            $html .= '<div class="sc-slice size-md format-3col ' . $class . '">';
             $img_size = array( 64, 64);
         }
         foreach ( $posts as $post ) {
@@ -169,25 +170,21 @@ function shortcode_posts( $atts ) {
             else {
                 $html .= '<a href="' . $post->guid .'">';
             }
-            $html .= '<div class="sc-story__hd">';
             if (has_post_thumbnail($post->ID)) {
+                $html .= '<div class="sc-story__hd">';
                 $thumbnail = get_the_post_thumbnail( $post->ID, $img_size );
                 $html .= $thumbnail;
+                $html .= '</div>';
             }
             else {
-                if ($size != 'medium') {
-                    if ($post->post_type == 'link') {
-                        $html .= $post->link_sub_title;
-                    }
-                    elseif ($post->post_type == 'post') {
-                        $html .= $post->story_sub_title;
-                    }
-                    elseif ($post->post_type == 'sequence') {
-                        $html .= $post->sequence_sub_title;
-                    }
+                if ($size == 'extra_large') {
+                    $html .= '<div class="sc-story__hd">';
+                    $html .= '<p>';
+                    $html .= $post->post_excerpt;
+                    $html .= '</p>';
+                    $html .= '</div>';
                 }
             }
-            $html .= '</div>';
             $html .= '<div class="sc-story__bd">';
             $html .= '<p class="kicker">' . $author_first_name . ' ' . $author_last_name . '</p>';
             $html .= '<h4>' . $post->post_title . '</h4>';
