@@ -2,10 +2,9 @@
 
 <?php if(have_posts()) : the_post(); ?>
 	<?php jeo_map();
-	$story_sub_title   = get_post_meta( $id, 'story_sub_title', true );
 	$author_first_name   = get_the_author_meta( 'first_name' );
 	$author_last_name   = get_the_author_meta( 'last_name' );
-	$story_location   = get_post_meta( $id, 'story_location', true );
+	$story_location   = get_post_meta( $id, 'geocode_address', true );
 	?>
 
 	<div class="main">
@@ -16,7 +15,6 @@
 			<header class="story__hd">
 				<h3 class="kicker">Kicker</h3>
 				<h1><?php the_title(); ?></h1>
-				<h2 class="subhead"><?php echo $story_sub_title?></h2>
 			</header>
 			<?php
 			if ( has_post_thumbnail() ) {?>
