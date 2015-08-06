@@ -46,20 +46,12 @@ function register_link_post_type() {
 
 function link_settings_box() {
     global $post;
-
-    $link_sub_title = get_post_meta( $post->ID, 'link_sub_title', true);
     $link_target = get_post_meta( $post->ID, 'link_target', true);
 ?>
     <input type="hidden" name="link_setting_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ) ?>">
     <div id="story_settings_box">
         <div class="metabox-tabs-div">
             <div id="genetal-tab" class="genetal-tab">
-                <div class="type-title">
-                    <h4>Link Sub Title</h4>
-                </div>
-                <div class="settings">
-                    <input type="text" size="100" name="link_sub_title" id="link_sub_title" value="<?php echo $link_sub_title ?>">
-                </div>
                 <div class="type-title">
                     <h4>Link Target</h4>
                 </div>
@@ -108,15 +100,12 @@ function save_link_settings ( $post_id ) {
         return $post_id;
     }
 
-    $link_sub_title = $_POST['link_sub_title'];
     $link_target = $_POST['link_target'];
 
-    update_post_meta($post_id, 'link_sub_title', $link_sub_title);
     update_post_meta($post_id, 'link_target', $link_target);    
 }
 
 /* Add action to wp function */
-// add_action( 'init', 'create_link_taxonomies' );
 add_action( 'admin_init', 'link_settings' );
 add_action('save_post', 'save_link_settings' );
 add_action( 'init', 'revcon_change_post_object' );
