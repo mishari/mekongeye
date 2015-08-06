@@ -131,7 +131,7 @@ function shortcode_posts( $atts ) {
             $posts_per_page = 2;
         }
         elseif ($size == 'medium') {
-            $posts_per_page = 4;
+            $posts_per_page = 3;
         }
         $args = array(
             'posts_per_page'   => $posts_per_page,
