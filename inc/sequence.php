@@ -53,8 +53,6 @@ function custom_enqueue_script( $hook_suffix ) {
 
 function sequence_settings_box() {
     global $post;
-
-    $sequence_sub_title = get_post_meta( $post->ID, 'sequence_sub_title', true);
     $sequence_image_1 = get_post_meta( $post->ID, 'sequence_image_1', true);
     $sequence_image_2 = get_post_meta( $post->ID, 'sequence_image_2', true);
     $sequence_image_3 = get_post_meta( $post->ID, 'sequence_image_3', true);
@@ -65,12 +63,6 @@ function sequence_settings_box() {
     <div id="story_settings_box">
         <div class="metabox-tabs-div">
             <div id="genetal-tab" class="genetal-tab">
-                <div class="type-title">
-                    <h4>Sequence Sub Title</h4>
-                </div>
-                <div class="settings">
-                    <input type="text" size="100" name="sequence_sub_title" id="sequence_sub_title" value="<?php echo $sequence_sub_title ?>">
-                </div>
                 <div class="type-title">
                     <h4>Sequence Image 1</h4>
                 </div>
@@ -188,36 +180,12 @@ function save_sequence_settings ( $post_id ) {
         return $post_id;
     }
 
-    $sequence_sub_title = $_POST['sequence_sub_title'];
-    if(!empty($_FILES['sequence_image_1']['name'])) {
-        $supported_types = array(
-            'image/jpeg',
-            'image/png',
-            'image/gif',
-        );
-
-        $arr_file_type = wp_check_filetype(basename($_FILES['sequence_image_1']['name']));
-        $uploaded_type = $arr_file_type['type'];
-
-        if(in_array($uploaded_type, $supported_types)) {
- 
-            $upload = wp_upload_bits($_FILES['sequence_image_1']['name'], null, file_get_contents($_FILES['sequence_image_1']['tmp_name']));
-     
-            if(isset($upload['error']) && $upload['error'] != 0) {
-                wp_die('There was an error uploading your file. The error is: ' . $upload['error']);
-            } else {
-                add_post_meta($id, 'sequence_image_1', $upload);
-                update_post_meta($id, 'sequence_image_1', $upload);     
-            }
-        }
-    }
     $sequence_image_1 = $_POST['sequence_image_1'];
     $sequence_image_2 = $_POST['sequence_image_2'];
     $sequence_image_3 = $_POST['sequence_image_3'];
     $sequence_image_4 = $_POST['sequence_image_4'];
     $sequence_image_5 = $_POST['sequence_image_5'];
 
-    update_post_meta($post_id, 'sequence_sub_title', $sequence_sub_title);
     update_post_meta($post_id, 'sequence_image_1', $sequence_image_1);
     update_post_meta($post_id, 'sequence_image_2', $sequence_image_2);
     update_post_meta($post_id, 'sequence_image_3', $sequence_image_3); 
