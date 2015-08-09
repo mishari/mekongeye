@@ -6,6 +6,8 @@
 	$kicker = wp_get_post_terms($id, 'pub_type', array('fields' => 'names'));
     if ($kicker[0] != '') {
         $kicker = '<h3 class="kicker">' . $kicker[0] . '</h3>';
+    } else {
+    	$kicker = '';
     }
 	$author_first_name   = get_the_author_meta( 'first_name' );
 	$author_last_name   = get_the_author_meta( 'last_name' );
@@ -15,23 +17,23 @@
 	$sequence_image_4 = get_post_meta( $id, 'sequence_image_4', true );
 	$sequence_image_5 = get_post_meta( $id, 'sequence_image_5', true );
 	?>
-	<div id="sequence-image">
-		<figure>
-		<?php
-			$count = 0;
-			for ($index = 1; $index <= 5; $index++) {
-				$img_id = 'sequence_image_' . $index;
-				$sequence_image = get_post_meta( $id, $img_id, true );
-				if ($sequence_image != '') {
-					echo '<img src="' . $sequence_image . '">';
-					$count++;
-				}
-
-			}
-		?>
-		</figure>
-	</div>
 	<div class="main">
+		<div id="sequence-image">
+			<figure>
+			<?php
+				$count = 0;
+				for ($index = 1; $index <= 5; $index++) {
+					$img_id = 'sequence_image_' . $index;
+					$sequence_image = get_post_meta( $id, $img_id, true );
+					if ($sequence_image != '') {
+						echo '<img src="' . $sequence_image . '">';
+						$count++;
+					}
+
+				}
+			?>
+			</figure>
+		</div>
 		<article id="content" class="sequence">
 			<header class="story__hd">
 				<?php echo $kicker ?>
