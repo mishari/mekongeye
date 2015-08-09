@@ -33,28 +33,7 @@ function mekongeye_styles() {
 }
 add_action('wp_enqueue_scripts', 'mekongeye_styles', 15);
 
-function sections_init() {
-	// create a new taxonomy
-	register_taxonomy(
-		'sections',
-		'post',
-		array(
-			'label' => __( 'Sections' ),
-			'rewrite' => array( 'slug' => 'section'),
-			'hierarchical'=> true,
-			'capabilities' => array(
-					'manage__terms' => 'edit_posts',
-				    'edit_terms' => 'manage_categories',
-				    'delete_terms' => 'manage_categories',
-				    'assign_terms' => 'edit_posts'
-				)
-		)
-	);
-}
-add_action( 'init', 'sections_init' );
-
-
-function create_story_taxonomies() {
+function create_taxonomies() {
     $topic_labels = array(
         'name'              => _x( 'Topics', 'taxonomy general name' ),
         'singular_name'     => _x( 'Topic', 'taxonomy singular name' ),
@@ -77,7 +56,6 @@ function create_story_taxonomies() {
         'query_var'             => true,
         'rewrite'               => array( 'slug' => 'topic' ),
     );
-
     register_taxonomy( 'topic', array('post', 'link', 'sequence', 'map'), $topic_args );
 
     $region_labels = array(
@@ -102,10 +80,109 @@ function create_story_taxonomies() {
         'query_var'             => true,
         'rewrite'               => array( 'slug' => 'region' ),
     );
-
     register_taxonomy( 'region', array('post', 'link', 'sequence', 'map'), $region_args );
+
+    $publication_type = array(
+        'name'              => _x( 'Publication Types', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Publication Type', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Publication Types' ),
+        'all_items'         => __( 'All Publication Types' ),
+        'parent_item'       => __( 'Parent Publication Type' ),
+        'parent_item_colon' => __( 'Parent Publication Type:' ),
+        'edit_item'         => __( 'Edit Publication Type' ),
+        'update_item'       => __( 'Update Publication Type' ),
+        'add_new_item'      => __( 'Add New Publication Type' ),
+        'new_item_name'     => __( 'New Publication Type Name' ),
+        'menu_name'         => __( 'Publication Type' ),
+    );
+
+    $region_args = array(
+        'hierarchical'          => true,
+        'labels'                => $publication_type,
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'             => true,
+        'rewrite'               => array( 'slug' => 'pub_type' ),
+    );
+    register_taxonomy( 'pub_type', array('post', 'link', 'sequence', 'map'), $region_args );
 }
-add_action( 'init', 'create_story_taxonomies', 0 );
+add_action( 'init', 'create_taxonomies', 0 );
+
+function editor_pick_settings_box() {
+    global $post;
+    $editor_pick = get_post_meta( $post->ID, 'editor_pick', true);
+    $checked = ($editor_pick == "true" ? 'checked="checked"' : '');
+?>
+    <input type="hidden" name="editor_pick_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ) ?>">
+    <div id="editor_pick">
+        <div class="metabox-tabs-div">
+            <div id="genetal-tab" class="genetal-tab">
+                <input type="checkbox" name="editor_pick" value="true" <?php echo $checked; ?> />
+                <label>Editor's Pick</label>
+            </div>
+        </div>
+    </div>
+<?php
+}
+
+function editor_pick_settings() {
+    $types = array('post', 'link', 'sequence', 'map');
+    foreach ($types as $type) {
+        add_meta_box (
+            'editor_pick',
+            'Editor\'s Pick Box',
+            'editor_pick_settings_box',
+            $type,
+            'side'
+        );
+    }        
+}
+
+/* Save data for per story setting */
+function save_editor_pick ( $post_id ) {
+    if ( ! array_key_exists( 'editor_pick_meta_box_nonce', $_POST ) ) {
+        $_POST['editor_pick_meta_box_nonce'] = '';
+    }
+
+    // verify nonce
+    if ( ! wp_verify_nonce( $_POST['editor_pick_meta_box_nonce'], basename( __FILE__ ) ) ) {
+        return $post_id;
+    }
+
+    // check autosave
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return $post_id;
+    }
+
+    $editor_pick = $_POST['editor_pick'];
+
+    update_post_meta($post_id, 'editor_pick', $editor_pick);
+
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count == ''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, 0);
+    }
+}
+
+add_action( 'admin_init', 'editor_pick_settings' );
+add_action( 'save_post', 'save_editor_pick' );
+
+function set_posts_views($postID) {
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count == ''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, 0);
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
 
 function shortcode_posts( $atts ) {
     extract( shortcode_atts( array(
@@ -131,7 +208,7 @@ function shortcode_posts( $atts ) {
             $posts_per_page = 2;
         }
         elseif ($size == 'medium') {
-            $posts_per_page = 3;
+            $posts_per_page = 4;
         }
         $args = array(
             'posts_per_page'   => $posts_per_page,
