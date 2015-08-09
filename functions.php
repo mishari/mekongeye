@@ -261,7 +261,7 @@ function shortcode_posts( $atts ) {
             }
             $html .= '<div class="sc-story__bd">';
             $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
-            if $kicker[0] != '' {
+            if ($kicker[0] != '') {
                 $html .= '<p class="kicker">' . $kicker[0] . '</p>';
             }
             $html .= '<h4>' . $post->post_title . '</h4>';
