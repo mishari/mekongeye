@@ -232,7 +232,7 @@ function shortcode_posts( $atts ) {
             $img_size = array( 166, 166);
         }
         elseif ($size == 'medium') {
-            $html .= '<div class="sc-slice size-md format-3col format-md-bg' . $class . '">';
+            $html .= '<div class="sc-slice size-md format-3col format-md-bg ' . $class . '">';
             $img_size = array( 64, 64);
         }
         foreach ( $posts as $post ) {
