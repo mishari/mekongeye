@@ -110,9 +110,11 @@ $slider_width = 100 * $count;
 ?>
 <style type="text/css">
 	div#sequence-image { 
-		width: <?php echo 100-$img_width ?>%; 
-		max-width: 1000px; 
+		width: <?php echo 100-$img_width ?>%;
 		overflow: hidden;
+		max-width: 1080px;
+	    margin-left: auto;
+	    margin-right: auto;
 	}
 	div#sequence-image figure {
 		position: relative; 
