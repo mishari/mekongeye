@@ -3,18 +3,19 @@
 <?php if(have_posts()) : the_post(); ?>
 	<?php jeo_map();
 	set_posts_views($id);
+	$kicker = wp_get_post_terms($id, 'pub_type', array('fields' => 'names'));
+    if ($kicker[0] != '') {
+        $kicker = '<h3 class="kicker">' . $kicker[0] . '</h3>';
+    }
 	$author_first_name   = get_the_author_meta( 'first_name' );
 	$author_last_name   = get_the_author_meta( 'last_name' );
 	$story_location   = get_post_meta( $id, 'geocode_address', true );
 	?>
 
 	<div class="main">
-		<div class="featured">
-			<p>featured/related stories</p>
-		</div>
 		<article id="content" class="story">
 			<header class="story__hd">
-				<h3 class="kicker">Kicker</h3>
+				<?php echo $kicker ?>
 				<h1><?php the_title(); ?></h1>
 			</header>
 			<?php
@@ -33,6 +34,60 @@
 				<?php the_content(); ?>
 			</div>
 		</article>
+		<section class="sc-container">
+
+                <h2>Related</h2>
+
+                <!-- begin slice -->
+                <div class="sc-slice size-md">
+
+                    <article class="sc-story option-image">
+                        <a href="#">
+                            <div class="sc-story__hd">
+                                <img src="/static/images/preview-64x64px.jpg" alt="story preview">
+                            </div>
+                            <div class="sc-story__bd">
+                                <p class="kicker">Eye Original</p>
+                                <h4>Small story hed goes here spot for story</h4>
+                                <p class="dateline">25 May 2015</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="sc-story ">
+                        <a href="#">
+                            <div class="sc-story__bd">
+                                <h4>If there is no image, show only the text headine for the story</h4>
+                                <p class="dateline">25 May 2015</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="sc-story option-image">
+                        <a href="#">
+                            <div class="sc-story__hd">
+                                <img src="/static/images/preview-64x64px.jpg" alt="story preview">
+                            </div>
+                            <div class="sc-story__bd">
+                                <h4>Small story hed goes here spot for story</h4>
+                                <p class="dateline">25 May 2015</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="sc-story ">
+                        <a href="#">
+                            <div class="sc-story__bd">
+                                <h4>If there is no image, show only the text headine for the story</h4>
+                                <p class="dateline">25 May 2015</p>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+                <!-- / slice -->
+
+            </section>
 	</div>
 
 <?php endif; ?>
