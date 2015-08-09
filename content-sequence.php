@@ -2,6 +2,7 @@
 
 <?php if(have_posts()) : the_post(); ?>
 	<?php jeo_map();
+	set_posts_views($id);
 	$author_first_name   = get_the_author_meta( 'first_name' );
 	$author_last_name   = get_the_author_meta( 'last_name' );
 	$sequence_image_1 = get_post_meta( $id, 'sequence_image_1', true );
