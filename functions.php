@@ -247,7 +247,7 @@ function shortcode_posts( $atts ) {
                 $html .= '<a href="' . $link .'">';
             }
             else {
-                $html .= '<a href="' . $post->guid .'">';
+                $html .= '<a href="' . post_permalink($post->ID) .'">';
             }
             if (has_post_thumbnail($post->ID)) {
                 $html .= '<div class="sc-story__hd">';
