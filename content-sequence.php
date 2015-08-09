@@ -17,8 +17,8 @@
 	$sequence_image_4 = get_post_meta( $id, 'sequence_image_4', true );
 	$sequence_image_5 = get_post_meta( $id, 'sequence_image_5', true );
 	?>
-	<div class="main">
-		<div id="sequence-image">
+	<div class="container">
+        <div id="sequence-image">
 			<figure>
 			<?php
 				$count = 0;
@@ -34,27 +34,26 @@
 			?>
 			</figure>
 		</div>
-		<article id="content" class="sequence">
-			<header class="story__hd">
-				<?php echo $kicker ?>
-				<h1><?php the_title(); ?></h1>
-			</header>
-			<div class="sequence__meta">
-				<p class="byline">By <strong><?php echo $author_first_name . ' ' . $author_last_name ?></strong></p>
-				<p class="dateline"><?php the_date( 'j M Y', '', '', true ); ?> </p>
-			</div>
+		<div class="main">
+    		<a name="content"></a>
+            <article class="sequence">
+				<header class="sequence__hd">
+					<?php echo $kicker ?>
+					<h1><?php the_title(); ?></h1>
+					<h2 class="subhead">Subhead Here Below the Main Hed</h2>
+				</header>
+				<div class="sequence__meta">
+					<p class="byline">By <strong><?php echo $author_first_name . ' ' . $author_last_name ?></strong></p>
+					<p class="dateline"><?php the_date( 'j M Y', '', '', true ); ?> </p>
+				</div>
+				<div class="sequence__bd">
+					<?php the_content(); ?>
+				</div>
+			</article>
 
-			<div class="story__bd">
-				<?php the_content(); ?>
-			</div>
-		</article>
-		<section class="sc-container">
-
+            <section class="sc-container">
                 <h2>Related</h2>
-
-                <!-- begin slice -->
                 <div class="sc-slice size-md">
-
                     <article class="sc-story option-image">
                         <a href="#">
                             <div class="sc-story__hd">
@@ -100,8 +99,8 @@
 
                 </div>
                 <!-- / slice -->
-
             </section>
+		</div>
 	</div>
 
 <?php endif; ?>
