@@ -236,7 +236,12 @@ function shortcode_posts( $atts ) {
             $img_size = array( 64, 64);
         }
         foreach ( $posts as $post ) {
-            $html .= '<article class="sc-story option-image">';
+            if (has_post_thumbnail($post->ID)) {
+                $html .= '<article class="sc-story option-image">';
+            } else {
+                $html .= '<article class="sc-story">';
+            }
+            
             if ($post->post_type == 'link') {
                 $link = get_post_meta($post->ID, 'link_target', true);
                 $html .= '<a href="' . $link .'">';
