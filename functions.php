@@ -236,9 +236,6 @@ function shortcode_posts( $atts ) {
             $img_size = array( 64, 64);
         }
         foreach ( $posts as $post ) {
-            $author_first_name = get_the_author_meta( 'first_name', $post->post_author );
-            $author_last_name = get_the_author_meta( 'last_name', $post->post_author );
-            
             $html .= '<article class="sc-story option-image">';
             if ($post->post_type == 'link') {
                 $link = get_post_meta($post->ID, 'link_target', true);
@@ -263,7 +260,10 @@ function shortcode_posts( $atts ) {
                 }
             }
             $html .= '<div class="sc-story__bd">';
-            $html .= '<p class="kicker">' . $author_first_name . ' ' . $author_last_name . '</p>';
+            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+            if $kicker[0] != '' {
+                $html .= '<p class="kicker">' . $kicker[0] . '</p>';
+            }
             $html .= '<h4>' . $post->post_title . '</h4>';
             $date = get_the_date( 'j M Y', $post->ID );
             $html .= '<p class="dateline">' . $date . '</p>';
