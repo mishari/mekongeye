@@ -49,11 +49,13 @@
 						'menu_class'      => 'nav-link',
 					);
 
-					wp_nav_menu( $defaults );
+					wp_nav_menu( $defaults );wp_nav_menu(array('theme_location' => 'header_menu')); 
 				?>
 			</nav>
 		</div>
 	</header>
 	<script>
 	$('.menu-item').addClass('nav-link');
+	$('ul#menu-top-menu li:nth-child(3)').addClass('more');
+	$('ul#menu-top-menu li:nth-child(4)').addClass('more');
 	</script>
