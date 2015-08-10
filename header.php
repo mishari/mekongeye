@@ -32,16 +32,28 @@
 </head>
 <body <?php body_class(get_bloginfo('language')); ?>>
 	<div class="container">
-	
-		<header class="global-header">
-			<div class="nameplate" id="nameplate">
-				<h1>
-					<a href="<?php echo home_url('/'); ?>" title="<?php bloginfo('name'); ?>">
-						<?php bloginfo('name'); ?>
-					</a>
-				</h1>
-			</div>
-			<nav class="global-nav">
-				<?php wp_nav_menu(array('theme_location' => 'header_menu')); ?>
-			</nav>
+	<header class="global-header">
+        <div class="nameplate" id="nameplate">
+            <div class="nameplate__bd"><a href="#"><img class="logo" src="/static/images/logo-mekong.png" alt=""></a></div>
+        </div>
 	</header>
+	<header class="navigation" role="banner">
+	<div class="navigation-wrapper">
+		<a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+			<nav role="navigation">
+				<?php 
+					$defaults = array(
+						'theme_location'  => 'header_menu',
+						'container'       => false,
+						'container_class' => false,
+						'menu_class'      => 'nav-link',
+					);
+
+					wp_nav_menu( $defaults );wp_nav_menu(array('theme_location' => 'header_menu')); 
+				?>
+			</nav>
+		</div>
+	</header>
+	<script>
+	$('.menu-item').addClass('nav-link');
+	</script>
