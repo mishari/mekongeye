@@ -49,7 +49,7 @@
 						'menu_class'      => 'nav-link',
 					);
 
-					wp_nav_menu( $defaults );wp_nav_menu(array('theme_location' => 'header_menu')); 
+					wp_nav_menu( $defaults );
 				?>
 			</nav>
 		</div>
