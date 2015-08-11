@@ -36,7 +36,7 @@ get_header(); ?>
                         echo '<a href="' . $link .'">';
                     }
                     else {
-                        echo '<a href="' . $post->guid .'">';
+                        echo '<a href="' . post_permalink($post->ID) .'">';
                     }
                     ?>
                         <div class="sc-story__bd">
@@ -78,7 +78,7 @@ get_header(); ?>
                         echo '<a href="' . $link .'">';
                     }
                     else {
-                        echo '<a href="' . $post->guid .'">';
+                        echo '<a href="' . post_permalink($post->ID) .'">';
                     }
                     ?>
                         <div class="sc-story__bd">
@@ -121,7 +121,7 @@ get_header(); ?>
                         echo '<a href="' . $link .'">';
                     }
                     else {
-                        echo '<a href="' . $post->guid .'">';
+                        echo '<a href="' . post_permalink($post->ID) .'">';
                     }
                     ?>
                         <div class="sc-story__bd">
@@ -179,7 +179,7 @@ get_header(); ?>
                         echo '<a href="' . $link .'">';
                     }
                     else {
-                        echo '<a href="' . $post->guid .'">';
+                        echo '<a href="' . post_permalink($post->ID) .'">';
                     }
                     ?>
                         <div class="sc-story__bd">
