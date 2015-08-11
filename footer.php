@@ -28,8 +28,8 @@
 
 		<div class="footer-social">
 			<h6>Follow us on social media</h6>
-			<a href="#"><img src="/static/images/twitter-icon.png" alt="twitter"></a>
-			<a href="#"><img src="/static/images/facebook-icon.png" alt="facebook"></a>
+			<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/twitter-icon.png" alt="twitter"></a>
+			<a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/facebook-icon.png" alt="facebook"></a>
 		</div>
 
 		<div class="footer-subscribe">
@@ -46,7 +46,7 @@
 		<div class="footer-sponsors">
 			<h6>Project Sponsors</h6>
 			<p>
-				<a href="http://earthjournalism.net" style="width: 150px;"><img src="/static/images/ejn-logo-hi.png" alt="Earth Journalism Network"></a>
+				<a href="http://earthjournalism.net" style="width: 150px;"><img src="<?php echo get_template_directory_uri(); ?>/images/ejn-logo-hi.png" alt="Earth Journalism Network"></a>
 			</p>
 		</div>
 
