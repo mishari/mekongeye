@@ -34,7 +34,7 @@
 	<div class="container">
 	<header class="global-header">
         <div class="nameplate" id="nameplate">
-            <div class="nameplate__bd"><a href="#"><img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-mekong.png" alt=""></a></div>
+            <div class="nameplate__bd"><a href="#"><img class="logo" src="<?php bloginfo('stylesheet_directory');?>/images/logo-mekong.png" alt=""></a></div>
         </div>
 	</header>
 	<header class="navigation" role="banner">
