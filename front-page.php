@@ -138,6 +138,22 @@ get_header(); ?>
             </div>
         </section>
 
+        <div id="subscribe-right">
+            <h3>Subscribe for email updates</h3>
+            <form class="email-signup form-color-e">
+                <label for="email-signup__name" class="hidden-label">Name</label>
+                <input type="email" value="" name="EMAIL" class="email" id="email-signup__name" placeholder="name" required="">
+                <label for="email-signup__mail" class="hidden-label">Email Address</label>
+                <input type="email" value="" name="EMAIL" class="email" id="email-signup__mail" placeholder="email address" required="">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button ss-icon">
+            </form>
+        </div>
+        <div class="front-social social-subscribe">
+            <h3>Follow us on social media</h3>
+            <a href="#"><img src="/static/images/twitter-icon.png" alt="twitter"></a>
+            <a href="#"><img src="/static/images/facebook-icon.png" alt="facebook"></a>
+        </div>
+
         <section class="sc-container" id="views">
             <h2 class="alt">Most Read</h2>
             <div class="sc-slice size-xs">
@@ -179,17 +195,6 @@ get_header(); ?>
             ?>
             </div>
         </section>
-
-        <div id="subscribe-right">
-            <h3>Subscribe for email updates</h3>
-            <form class="email-signup form-color-e">
-                <label for="email-signup__name" class="hidden-label">Name</label>
-                <input type="email" value="" name="EMAIL" class="email" id="email-signup__name" placeholder="name" required="">
-                <label for="email-signup__mail" class="hidden-label">Email Address</label>
-                <input type="email" value="" name="EMAIL" class="email" id="email-signup__mail" placeholder="email address" required="">
-                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button ss-icon">
-            </form>
-        </div>
 
     </div>
 </div>
