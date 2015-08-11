@@ -44,16 +44,20 @@
 		</div>
 
 		<div class="footer-sponsors">
-			<h6>Project Sponsors</h6>
 			<p>
+				<a href="#" style="width: 180px;"><img src="<?php bloginfo('stylesheet_directory');?>/images/mpe-logo-colorized.png" alt="Mekong Partnership for the Environment"></a>
 				<a href="http://earthjournalism.net" style="width: 150px;"><img src="<?php bloginfo('stylesheet_directory');?>/images/ejn-logo-hi.png" alt="Earth Journalism Network"></a>
+				<a href="https://www.internews.org" style="width: 180px;"><img src="<?php bloginfo('stylesheet_directory');?>/images/internews-logo-colorized.png" alt="Internews"></a>
 			</p>
 		</div>
 
 		<div class="footer-contact">
 			<p>
-				<a href="#">editor@mekongeye.com</a><br>
-				Address goes here
+				<a href="mailto:editor@mekongeye.com">editor@mekongeye.com</a><br>
+				Unit 6, 28th Floor, CRC Tower,&nbsp;All Seasons Place<br>
+				87/2 Wireless Road, Pathumwan<br>
+				Bangkok, 10330<br>
+				Thailand
 			</p>
 		</div>
 
