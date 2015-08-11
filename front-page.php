@@ -150,8 +150,8 @@ get_header(); ?>
         </div>
         <div class="front-social social-subscribe">
             <h3>Follow us on social media</h3>
-            <a href="#"><img src="/static/images/twitter-icon.png" alt="twitter"></a>
-            <a href="#"><img src="/static/images/facebook-icon.png" alt="facebook"></a>
+            <a href="#"><img src="<?php bloginfo('stylesheet_directory');?>/images/twitter-icon.png" alt="twitter"></a>
+            <a href="#"><img src="<?php bloginfo('stylesheet_directory');?>/images/facebook-icon.png" alt="facebook"></a>
         </div>
 
         <section class="sc-container" id="views">
