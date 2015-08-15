@@ -67,8 +67,8 @@ $posts = get_posts( $args );
                     
                     <h2><?php echo $post->post_title ?></h2>
                     <?php
-                    $author_first_name   = get_the_author_meta( 'first_name' );
-                    $author_last_name   = get_the_author_meta( 'last_name' );
+                    $author_first_name = get_the_author_meta( 'first_name', $post->post_author );
+                    $author_last_name = get_the_author_meta( 'last_name', $post->post_author );
                     ?>
                     <p class="byline">By <?php echo $author_first_name . ' ' . $author_last_name ?></p>
                     <?php
