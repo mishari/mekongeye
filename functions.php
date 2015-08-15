@@ -56,7 +56,7 @@ function create_taxonomies() {
         'query_var'             => true,
         'rewrite'               => array( 'slug' => 'topic' ),
     );
-    register_taxonomy( 'topic', array('post', 'link', 'sequence', 'map'), $topic_args );
+    register_taxonomy( 'topic', array('page', 'post', 'link', 'sequence', 'map'), $topic_args );
 
     $region_labels = array(
         'name'              => _x( 'Regions', 'taxonomy general name' ),
@@ -80,7 +80,7 @@ function create_taxonomies() {
         'query_var'             => true,
         'rewrite'               => array( 'slug' => 'region' ),
     );
-    register_taxonomy( 'region', array('post', 'link', 'sequence', 'map'), $region_args );
+    register_taxonomy( 'region', array('page', 'post', 'link', 'sequence', 'map'), $region_args );
 
     $publication_type = array(
         'name'              => _x( 'Publication Types', 'taxonomy general name' ),
@@ -105,7 +105,7 @@ function create_taxonomies() {
         'query_var'             => true,
         'rewrite'               => array( 'slug' => 'pub_type' ),
     );
-    register_taxonomy( 'pub_type', array('post', 'link', 'sequence', 'map'), $region_args );
+    register_taxonomy( 'pub_type', array('page', 'post', 'link', 'sequence', 'map'), $region_args );
 }
 add_action( 'init', 'create_taxonomies', 0 );
 
