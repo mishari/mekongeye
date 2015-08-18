@@ -10,7 +10,9 @@
         $kicker = '';
     }
     ?>
-    <?php jeo_map(); ?>
+    <div class="map">
+        <?php jeo_map(); ?>
+    </div>
     <div class="container">
         <div class="main">
             <a name="content"></a>
