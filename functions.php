@@ -11,6 +11,9 @@ require_once(STYLESHEETPATH . '/inc/link.php');
 // Include Sequence
 require_once(STYLESHEETPATH . '/inc/sequence.php');
 
+// Include Map
+require_once(STYLESHEETPATH . '/inc/map.php');
+
 
 function mekongeye_styles() {
 
