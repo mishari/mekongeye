@@ -9,6 +9,277 @@ get_header(); ?>
     <?php while ( have_posts() ) : the_post(); ?>
         <?php the_content(); ?>
     <?php endwhile; ?>
+        <section class="sc-container">
+            <h2><a href="#">Maps &amp; Data <b>»</b></a></h2>
+            <div class="sc-slice size-xl">
+                <?php
+                $args = array(
+                    'posts_per_page'   => 1,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => 'map',
+                    'post_status'      => 'publish'
+                );
+                $posts = get_posts( $args );
+                foreach ( $posts as $post ) {
+                ?>
+                <article class="sc-story option-image">
+                    <div class="sc-story__hd">
+                        <div class="map-container clearfix">
+                            <div id="map_<?php echo jeo_get_map_id(); ?>"></div>
+                        </div>
+                        <script type="text/javascript">jeo(<?php echo jeo_map_conf(); ?>);</script>
+                    </div>
+                    <a href="#">
+                        <div class="sc-story__bd">
+                            <?php
+                            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+                            if ($kicker[0] != '') {
+                                echo '<p class="kicker">' . $kicker[0] . '</p>';
+                            }
+                            ?>
+                            <h4><?php echo $post->post_title; ?></h4>
+                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                        </div>
+                    </a>
+                </article>
+                <?php } ?>
+            </div>
+            <div class="sc-slice size-lg">
+                <?php
+                $args = array(
+                    'posts_per_page'   => 2,
+                    'offset'           => 1,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => 'map',
+                    'post_status'      => 'publish'
+                );
+                $posts = get_posts( $args );
+                foreach ( $posts as $post ) {
+                ?>
+                <article class="sc-story option-image">
+                    <a href="#">
+                        <div class="sc-story__hd">
+                            <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                        </div>
+                        <div class="sc-story__bd">
+                            <?php
+                            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+                            if ($kicker[0] != '') {
+                                echo '<p class="kicker">' . $kicker[0] . '</p>';
+                            }
+                            ?>
+                            <h4><?php echo $post->post_title; ?></h4>
+                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                        </div>
+                    </a>
+                </article>
+                <?php } ?>
+            </div>
+        </section>
+        <section class="sc-container">
+            <h2><a href="#">Opinion &amp; Blogs <b>»</b></a></h2>
+            <div class="sc-slice size-md format-3col">
+                <?php
+                $args = array(
+                    'posts_per_page'   => 3,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => array('post', 'link', 'sequence', 'map'),
+                    'post_status'      => 'publish',
+                    'pub_type'         => 'Opinion, Blogs'
+                );
+                $posts = get_posts( $args );
+                foreach ( $posts as $post ) {
+                ?>
+                <article class="sc-story option-image">
+                    <div class="sc-story__hd">
+                        <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                    </div>
+                    <a href="#">
+                        <div class="sc-story__bd">
+                            <?php
+                            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+                            if ($kicker[0] != '') {
+                                echo '<p class="kicker">' . $kicker[0] . '</p>';
+                            }
+                            ?>
+                            <h4><?php echo $post->post_title; ?></h4>
+                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                        </div>
+                    </a>
+                </article>
+                <?php } ?>
+            </div>
+            <div class="sc-slice size-md format-3col">
+                <?php
+                $args = array(
+                    'posts_per_page'   => 3,
+                    'offset'           => 3,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => array('post', 'link', 'sequence', 'map'),
+                    'post_status'      => 'publish',
+                    'pub_type'         => 'Opinion, Blogs'
+                );
+                $posts = get_posts( $args );
+                foreach ( $posts as $post ) {
+                ?>
+                <article class="sc-story option-image">
+                    <a href="#">
+                        <div class="sc-story__hd">
+                            <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                        </div>
+                        <div class="sc-story__bd">
+                            <?php
+                            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+                            if ($kicker[0] != '') {
+                                echo '<p class="kicker">' . $kicker[0] . '</p>';
+                            }
+                            ?>
+                            <h4><?php echo $post->post_title; ?></h4>
+                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                        </div>
+                    </a>
+                </article>
+                <?php } ?>
+            </div>
+        </section>
+        <section class="sc-container">
+            <h2><a href="#">Eye Originals <b>»</b></a></h2>
+            <div class="sc-slice size-md format-3col">
+                <?php
+                $args = array(
+                    'posts_per_page'   => 3,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => array('post', 'link', 'sequence', 'map'),
+                    'post_status'      => 'publish',
+                    'pub_type'         => 'Eye Original'
+                );
+                $posts = get_posts( $args );
+                foreach ( $posts as $post ) {
+                ?>
+                <article class="sc-story option-image">
+                    <div class="sc-story__hd">
+                        <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                    </div>
+                    <a href="#">
+                        <div class="sc-story__bd">
+                            <?php
+                            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+                            if ($kicker[0] != '') {
+                                echo '<p class="kicker">' . $kicker[0] . '</p>';
+                            }
+                            ?>
+                            <h4><?php echo $post->post_title; ?></h4>
+                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                        </div>
+                    </a>
+                </article>
+                <?php } ?>
+            </div>
+            <div class="sc-slice size-md format-3col">
+                <?php
+                $args = array(
+                    'posts_per_page'   => 3,
+                    'offset'           => 3,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => array('post', 'link', 'sequence', 'map'),
+                    'post_status'      => 'publish',
+                    'pub_type'         => 'Eye Original'
+                );
+                $posts = get_posts( $args );
+                foreach ( $posts as $post ) {
+                ?>
+                <article class="sc-story option-image">
+                    <a href="#">
+                        <div class="sc-story__hd">
+                            <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                        </div>
+                        <div class="sc-story__bd">
+                            <?php
+                            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+                            if ($kicker[0] != '') {
+                                echo '<p class="kicker">' . $kicker[0] . '</p>';
+                            }
+                            ?>
+                            <h4><?php echo $post->post_title; ?></h4>
+                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                        </div>
+                    </a>
+                </article>
+                <?php } ?>
+            </div>
+        </section>
+        <section class="sc-container">
+            <h2><a href="#">Video <b>»</b></a></h2>
+            <div class="sc-slice size-lg format-color-e">
+                <?php
+                $args = array(
+                    'posts_per_page'   => 2,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => 'sequence',
+                    'post_status'      => 'publish'
+                );
+                $posts = get_posts( $args );
+                foreach ( $posts as $post ) {
+                ?>
+                <article class="sc-story option-image">
+                    <div class="sc-story__hd">
+                        <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                    </div>
+                    <a href="#">
+                        <div class="sc-story__bd">
+                            <?php
+                            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+                            if ($kicker[0] != '') {
+                                echo '<p class="kicker">' . $kicker[0] . '</p>';
+                            }
+                            ?>
+                            <h4><?php echo $post->post_title; ?></h4>
+                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                        </div>
+                    </a>
+                </article>
+                <?php } ?>
+            </div>
+            <div class="sc-slice size-lg format-color-e">
+                <?php
+                $args = array(
+                    'posts_per_page'   => 2,
+                    'offset'           => 2,
+                    'orderby'          => 'post_date',
+                    'order'            => 'DESC',
+                    'post_type'        => 'sequence',
+                    'post_status'      => 'publish'
+                );
+                $posts = get_posts( $args );
+                foreach ( $posts as $post ) {
+                ?>
+                <article class="sc-story option-image">
+                    <a href="#">
+                        <div class="sc-story__hd">
+                            <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                        </div>
+                        <div class="sc-story__bd">
+                            <?php
+                            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+                            if ($kicker[0] != '') {
+                                echo '<p class="kicker">' . $kicker[0] . '</p>';
+                            }
+                            ?>
+                            <h4><?php echo $post->post_title; ?></h4>
+                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                        </div>
+                    </a>
+                </article>
+                <?php } ?>
+            </div>
+        </section>
     </div>
     <div id="stories-right">
         <h2 class="alt-group">Mekong Eye <br> News Digest</h2>
