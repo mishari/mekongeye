@@ -25,12 +25,12 @@ get_header(); ?>
                 ?>
                 <article class="sc-story option-image">
                     <div class="sc-story__hd">
-                        <div class="map-container clearfix">
+                        <div class="map-container clearfix map-fill map-tall">
                             <div id="map_<?php echo jeo_get_map_id(); ?>"></div>
                         </div>
                         <script type="text/javascript">jeo(<?php echo jeo_map_conf(); ?>);</script>
                     </div>
-                    <a href="#">
+                    <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__bd">
                             <?php
                             $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
@@ -59,7 +59,7 @@ get_header(); ?>
                 foreach ( $posts as $post ) {
                 ?>
                 <article class="sc-story option-image">
-                    <a href="#">
+                    <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__hd">
                             <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
                         </div>
@@ -97,7 +97,7 @@ get_header(); ?>
                     <div class="sc-story__hd">
                         <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
                     </div>
-                    <a href="#">
+                    <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__bd">
                             <?php
                             $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
@@ -127,7 +127,7 @@ get_header(); ?>
                 foreach ( $posts as $post ) {
                 ?>
                 <article class="sc-story option-image">
-                    <a href="#">
+                    <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__hd">
                             <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
                         </div>
@@ -165,7 +165,7 @@ get_header(); ?>
                     <div class="sc-story__hd">
                         <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
                     </div>
-                    <a href="#">
+                    <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__bd">
                             <?php
                             $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
@@ -195,7 +195,7 @@ get_header(); ?>
                 foreach ( $posts as $post ) {
                 ?>
                 <article class="sc-story option-image">
-                    <a href="#">
+                    <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__hd">
                             <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
                         </div>
@@ -232,7 +232,7 @@ get_header(); ?>
                     <div class="sc-story__hd">
                         <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
                     </div>
-                    <a href="#">
+                    <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__bd">
                             <?php
                             $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
@@ -261,7 +261,7 @@ get_header(); ?>
                 foreach ( $posts as $post ) {
                 ?>
                 <article class="sc-story option-image">
-                    <a href="#">
+                    <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__hd">
                             <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
                         </div>
