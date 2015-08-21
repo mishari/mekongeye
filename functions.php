@@ -286,4 +286,21 @@ function shortcode_posts( $atts ) {
 
 add_shortcode( 'posts', 'shortcode_posts' );
 
+function shortcode_section( $atts, $content=null ) {
+    extract( shortcode_atts( array(
+        'name' => '',
+        'link' => '#',
+        'class' => ''
+    ), $atts ) );
+
+    $html = '<section class="sc-container ' . $class . '">';
+    if ($name != '') {
+        $html .= '<h2><a href="' . $link . '">' . $name . ' <b>»</b></a></h2>';
+    }
+    $html .= do_shortcode($content);
+    $html .= '</section>';
+}
+
+add_shortcode( 'section', 'shortcode_section' );
+
 ?>
