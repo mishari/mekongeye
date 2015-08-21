@@ -299,6 +299,7 @@ function shortcode_section( $atts, $content=null ) {
     }
     $html .= do_shortcode($content);
     $html .= '</section>';
+    return $html;
 }
 
 add_shortcode( 'section', 'shortcode_section' );
