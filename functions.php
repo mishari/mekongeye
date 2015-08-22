@@ -304,4 +304,13 @@ function shortcode_section( $atts, $content=null ) {
 
 add_shortcode( 'section', 'shortcode_section' );
 
+function the_content_filter($content) {
+    $block = "section";
+    $rep = preg_replace("/(<p>)?\[($block)(\s[^\]]+)?\](<\/p>|<br \/>)?/","[$2$3]",$content);
+    $rep = preg_replace("/(<p>)?\[\/($block)](<\/p>|<br \/>)?/","[/$2]",$rep);
+return $rep;
+}
+
+add_filter("the_content", "the_content_filter");
+
 ?>
