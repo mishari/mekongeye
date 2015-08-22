@@ -1956,11 +1956,11 @@ img {
 .clearfix {
   *zoom: 1; }
   
-#map{
+.map{
   height: 500px;
 }
 
-#map>.map-container {
+.map>.map-container {
   height: inherit;
 }
 .map-container>div {
