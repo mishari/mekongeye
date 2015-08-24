@@ -76,7 +76,7 @@ $posts = get_posts( $args );
                     <p class="dateline"><?php echo $date ?></p>
                 </div>
                 <div class="sv-story__ft">
-                    <?php echo $post->post_content; ?>
+                    <?php echo $post->post_excerpt; ?>
                     <p class="more"><a href="<?php echo post_permalink($post->ID); ?>">read more &raquo;</a> </p>
                 </div>
             </article>
