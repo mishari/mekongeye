@@ -25,7 +25,7 @@ $args = array(
     'suppress_filters' => true,
     'region'           => $region_name,
     'topic'            => $topic_name,
-    'pub_type'         => $pub_type
+    'pub_type'         => $pub_type_name
 );
 $posts = get_posts( $args );
 ?>
