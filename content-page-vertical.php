@@ -12,6 +12,9 @@ $topic_desc = $topic[0]->description;
 $region = wp_get_post_terms($id, 'region', array('fields' => 'all'));
 $region_name = $region[0]->name;
 $region_desc = $region[0]->description;
+$pub_type = wp_get_post_terms($id, 'pub_type', array('fields' => 'all'));
+$pub_type_name = $pub_type[0]->name;
+$pub_type_desc = $pub_type[0]->description;
 $args = array(
     'posts_per_page'   => 10,
     'offset'           => 0,
@@ -21,7 +24,8 @@ $args = array(
     'post_status'      => 'publish',
     'suppress_filters' => true,
     'region'           => $region_name,
-    'topic'            => $topic_name
+    'topic'            => $topic_name,
+    'pub_type'         => $pub_type
 );
 $posts = get_posts( $args );
 ?>
@@ -35,8 +39,8 @@ $posts = get_posts( $args );
     <div class="section-list-vertical">
 
         <header class="section-header">
-            <h1><?php echo $topic_name, $region_name; ?></h1>
-            <h2 class="subhead"><?php echo $topic_desc, $region_desc; ?></h2>
+            <h1><?php echo $topic_name, $region_name, $pub_type_name; ?></h1>
+            <h2 class="subhead"><?php echo $topic_desc, $region_desc, $pub_type_desc; ?></h2>
         </header>
 
         <div class="sv-slice">
