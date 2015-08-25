@@ -1,14 +1,14 @@
 <?php get_header(); ?>
 
 <?php if(have_posts()) : the_post(); ?>
-	<?php jeo_map();
+	<?php
 	set_posts_views($id);
 	$kicker = wp_get_post_terms($id, 'pub_type', array('fields' => 'names'));
-    if ($kicker[0] != '') {
-        $kicker = '<h3 class="kicker">' . $kicker[0] . '</h3>';
-    } else {
-    	$kicker = '';
-    }
+        if ($kicker[0] != '') {
+            $kicker = '<h3 class="kicker">' . $kicker[0] . '</h3>';
+        } else {
+       	    $kicker = '';
+        }
 	$author_first_name   = get_the_author_meta( 'first_name' );
 	$author_last_name   = get_the_author_meta( 'last_name' );
 	$sequence_image_1 = get_post_meta( $id, 'sequence_image_1', true );
