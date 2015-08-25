@@ -421,8 +421,8 @@ get_header(); ?>
         </div>
         <div class="front-social social-subscribe">
             <h3>Follow us on social media</h3>
-            <a href="#"><img src="<?php bloginfo('stylesheet_directory');?>/images/twitter-icon.png" alt="twitter"></a>
-            <a href="#"><img src="<?php bloginfo('stylesheet_directory');?>/images/facebook-icon.png" alt="facebook"></a>
+            <a href="https://twitter.com/MekongEye"><img src="<?php bloginfo('stylesheet_directory');?>/images/twitter-icon.png" alt="twitter"></a>
+            <a href="https://www.facebook.com/MekongEye"><img src="<?php bloginfo('stylesheet_directory');?>/images/facebook-icon.png" alt="facebook"></a>
         </div>
 
         <section class="sc-container" id="views">
