@@ -56,6 +56,6 @@
 	</header>
 	<script>
 	$('.menu-item').addClass('nav-link');
-	$('ul#menu-top-menu li:nth-child(3)').addClass('more');
-	$('ul#menu-top-menu li:nth-child(4)').addClass('more');
+	$('ul#menu-header-menu li:nth-child(3)').addClass('more');
+	$('ul#menu-header-menu li:nth-child(4)').addClass('more');
 	</script>
