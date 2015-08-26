@@ -257,8 +257,8 @@ function shortcode_posts( $atts ) {
         }
         foreach ( $posts as $post ) {
             if (has_post_thumbnail($post->ID)) {
-            	$image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
-                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_defaults ) . '" alt="' . get_the_title() . '" />';
+            	$image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_defaults ) . '" alt="' . $post->title . '" />';
                 $html .= '<article class="sc-story option-image">';
             } else {
                 $html .= '<article class="sc-story">';
