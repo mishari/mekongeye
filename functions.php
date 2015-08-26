@@ -273,7 +273,7 @@ function shortcode_posts( $atts ) {
             }
             if (has_post_thumbnail($post->ID)) {
                 $html .= '<div class="sc-story__hd">';
-                $html .= $featured_image
+                $html .= $featured_image;
                 $html .= '</div>';
             }
             else {
