@@ -12,6 +12,23 @@
 	$author_first_name   = get_the_author_meta( 'first_name' );
 	$author_last_name   = get_the_author_meta( 'last_name' );
 	$story_location   = get_post_meta( $id, 'geocode_address', true );
+	$arg_defaults = array(
+            'width'              => 1080,
+            'height'             => 460,
+            'crop'               => true,
+            'crop_from_position' => 'center,center',
+            'resize'             => true,
+            'cache'              => true,
+            'default'            => null,
+            'jpeg_quality'       => 70,
+            'resize_animations'  => false,
+            'return'             => 'url',
+            'background_fill'    => null
+            );
+        $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+        if ($image_src != '') {
+            $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_defaults ) . '" alt="' . get_the_title() . '" />';
+        }
 	?>
 
 	<div class="main">
@@ -23,7 +40,7 @@
 			<?php
 			if ( has_post_thumbnail() ) {?>
 				<div class="story__big-image">
-					<?php the_post_thumbnail(); ?>
+					<?php echo $$featured_image; ?>
 				</div>
 			<?php
 			}
