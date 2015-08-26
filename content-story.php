@@ -40,7 +40,7 @@
 			<?php
 			if ( has_post_thumbnail() ) {?>
 				<div class="story__big-image">
-					<?php echo $$featured_image; ?>
+					<?php echo $featured_image; ?>
 				</div>
 			<?php
 			}
