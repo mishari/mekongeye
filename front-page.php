@@ -104,7 +104,7 @@ $arg_medium = array(
                             <?php
                                 $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
                                 if ($image_src != '') {
-                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_large ) . '" alt="' . $post->title . '" />';
+                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_large ) . '" alt="' . $post->post_title . '" />';
                                     echo $featured_image;
                                 }
                             ?>
@@ -144,7 +144,7 @@ $arg_medium = array(
                         <?php
                             $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
                             if ($image_src != '') {
-                                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->post_title . '" />';
                                 echo $featured_image;
                             }
                         ?>
@@ -184,7 +184,7 @@ $arg_medium = array(
                             <?php
                                 $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
                                 if ($image_src != '') {
-                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->post_title . '" />';
                                     echo $featured_image;
                                 }
                             ?>
@@ -224,7 +224,7 @@ $arg_medium = array(
                         <?php
                             $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
                             if ($image_src != '') {
-                                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->post_title . '" />';
                                 echo $featured_image;
                             }
                         ?>
@@ -264,7 +264,7 @@ $arg_medium = array(
                             <?php
                                 $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
                                 if ($image_src != '') {
-                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->post_title . '" />';
                                     echo $featured_image;
                                 }
                             ?>
@@ -303,7 +303,7 @@ $arg_medium = array(
                         <?php
                             $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
                             if ($image_src != '') {
-                                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->post_title . '" />';
                                 echo $featured_image;
                             }
                         ?>
@@ -342,7 +342,7 @@ $arg_medium = array(
                             <?php
                             $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
                                 if ($image_src != '') {
-                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->post_title . '" />';
                                     echo $featured_image;
                                 }
                             ?>
