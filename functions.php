@@ -204,15 +204,35 @@ function shortcode_posts( $atts ) {
     }
 
     else {
-        if ($size == 'extra_large') {
+    	if ($size == 'extra_large') {
             $posts_per_page = 1;
+            $width = 1080;
+            $height = 460;
         }
         elseif ($size == 'large') {
             $posts_per_page = 2;
+            $width = 166;
+            $height = 166;
         }
         elseif ($size == 'medium') {
             $posts_per_page = 3;
+            $width = 64;
+            $height = 64;
         }
+    	$arg_defaults = array(
+            'width'              => $width,
+            'height'             => $height,
+            'crop'               => true,
+            'crop_from_position' => 'center,center',
+            'resize'             => true,
+            'cache'              => true,
+            'default'            => null,
+            'jpeg_quality'       => 70,
+            'resize_animations'  => false,
+            'return'             => 'url',
+            'background_fill'    => null
+    	);
+        
         $args = array(
             'posts_per_page'   => $posts_per_page,
             'offset'           => $offset,
@@ -228,18 +248,17 @@ function shortcode_posts( $atts ) {
         $posts = get_posts( $args );
         if ($size == 'extra_large') {
             $html .= '<div class="sc-slice size-xl ' . $class . '">';
-            $img_size = array( 1080, 459);
         }
         elseif ($size == 'large') {
             $html .= '<div class="sc-slice size-lg ' . $class . '">';
-            $img_size = array( 166, 166);
         }
         elseif ($size == 'medium') {
             $html .= '<div class="sc-slice size-md format-3col format-md-bg ' . $class . '">';
-            $img_size = array( 64, 64);
         }
         foreach ( $posts as $post ) {
             if (has_post_thumbnail($post->ID)) {
+            	$image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_defaults ) . '" alt="' . get_the_title() . '" />';
                 $html .= '<article class="sc-story option-image">';
             } else {
                 $html .= '<article class="sc-story">';
@@ -254,8 +273,7 @@ function shortcode_posts( $atts ) {
             }
             if (has_post_thumbnail($post->ID)) {
                 $html .= '<div class="sc-story__hd">';
-                $thumbnail = get_the_post_thumbnail( $post->ID, $img_size );
-                $html .= $thumbnail;
+                $html .= $featured_image
                 $html .= '</div>';
             }
             else {
