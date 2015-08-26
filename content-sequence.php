@@ -16,6 +16,19 @@
 	$sequence_image_3 = get_post_meta( $id, 'sequence_image_3', true );
 	$sequence_image_4 = get_post_meta( $id, 'sequence_image_4', true );
 	$sequence_image_5 = get_post_meta( $id, 'sequence_image_5', true );
+	$arg_defaults = array(
+            'width'              => 1080,
+            'height'             => 460,
+            'crop'               => true,
+            'crop_from_position' => 'center,center',
+            'resize'             => true,
+            'cache'              => true,
+            'default'            => null,
+            'jpeg_quality'       => 70,
+            'resize_animations'  => false,
+            'return'             => 'url',
+            'background_fill'    => null
+            );
 	?>
 	<div class="container">
         <div id="sequence-image">
@@ -25,8 +38,9 @@
 				for ($index = 1; $index <= 5; $index++) {
 					$img_id = 'sequence_image_' . $index;
 					$sequence_image = get_post_meta( $id, $img_id, true );
+					
 					if ($sequence_image != '') {
-						echo '<img src="' . $sequence_image . '">';
+						echo '<img src="' . wpthumb( $sequence_image, $arg_defaults ) . '"/>';
 						$count++;
 					}
 
