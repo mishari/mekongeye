@@ -258,7 +258,7 @@ function shortcode_posts( $atts ) {
         foreach ( $posts as $post ) {
             if (has_post_thumbnail($post->ID)) {
             	$image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_defaults ) . '" alt="' . $post->title . '" />';
+                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_defaults ) . '" alt="' . $post->post_title . '" />';
                 $html .= '<article class="sc-story option-image">';
             } else {
                 $html .= '<article class="sc-story">';
