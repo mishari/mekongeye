@@ -2,7 +2,47 @@
 /*
 Template Name: Front Page
 */
-get_header(); ?>
+get_header(); 
+$arg_extra_large = array(
+    'width'              => 1080,
+    'height'             => 460,
+    'crop'               => true,
+    'crop_from_position' => 'center,center',
+    'resize'             => true,
+    'cache'              => true,
+    'default'            => null,
+    'jpeg_quality'       => 70,
+    'resize_animations'  => false,
+    'return'             => 'url',
+    'background_fill'    => null
+);
+$arg_large = array(
+    'width'              => 166,
+    'height'             => 166,
+    'crop'               => true,
+    'crop_from_position' => 'center,center',
+    'resize'             => true,
+    'cache'              => true,
+    'default'            => null,
+    'jpeg_quality'       => 70,
+    'resize_animations'  => false,
+    'return'             => 'url',
+    'background_fill'    => null
+);
+$arg_medium = array(
+    'width'              => 64,
+    'height'             => 64,
+    'crop'               => true,
+    'crop_from_position' => 'center,center',
+    'resize'             => true,
+    'cache'              => true,
+    'default'            => null,
+    'jpeg_quality'       => 70,
+    'resize_animations'  => false,
+    'return'             => 'url',
+    'background_fill'    => null
+);
+?>
 		
 <div class="main">
     <div id="stories-left">
@@ -61,7 +101,13 @@ get_header(); ?>
                 <article class="sc-story option-image">
                     <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__hd">
-                            <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                            <?php
+                                $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+                                if ($image_src != '') {
+                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_large ) . '" alt="' . $post->title . '" />';
+                                    echo $featured_image;
+                                }
+                            ?>
                         </div>
                         <div class="sc-story__bd">
                             <?php
@@ -95,7 +141,13 @@ get_header(); ?>
                 ?>
                 <article class="sc-story option-image">
                     <div class="sc-story__hd">
-                        <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                        <?php
+                            $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+                            if ($image_src != '') {
+                                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                echo $featured_image;
+                            }
+                        ?>
                     </div>
                     <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__bd">
@@ -129,7 +181,13 @@ get_header(); ?>
                 <article class="sc-story option-image">
                     <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__hd">
-                            <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                            <?php
+                                $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+                                if ($image_src != '') {
+                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                    echo $featured_image;
+                                }
+                            ?>
                         </div>
                         <div class="sc-story__bd">
                             <?php
@@ -163,7 +221,13 @@ get_header(); ?>
                 ?>
                 <article class="sc-story option-image">
                     <div class="sc-story__hd">
-                        <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                        <?php
+                            $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+                            if ($image_src != '') {
+                                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                echo $featured_image;
+                            }
+                        ?>
                     </div>
                     <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__bd">
@@ -197,7 +261,13 @@ get_header(); ?>
                 <article class="sc-story option-image">
                     <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__hd">
-                            <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                            <?php
+                                $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+                                if ($image_src != '') {
+                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                    echo $featured_image;
+                                }
+                            ?>
                         </div>
                         <div class="sc-story__bd">
                             <?php
@@ -230,7 +300,13 @@ get_header(); ?>
                 ?>
                 <article class="sc-story option-image">
                     <div class="sc-story__hd">
-                        <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                        <?php
+                            $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+                            if ($image_src != '') {
+                                $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                echo $featured_image;
+                            }
+                        ?>
                     </div>
                     <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__bd">
@@ -263,7 +339,13 @@ get_header(); ?>
                 <article class="sc-story option-image">
                     <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__hd">
-                            <?php echo get_the_post_thumbnail( $post->ID, $img_size ); ?>
+                            <?php
+                            $image_src  = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+                                if ($image_src != '') {
+                                    $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_medium ) . '" alt="' . $post->title . '" />';
+                                    echo $featured_image;
+                                }
+                            ?>
                         </div>
                         <div class="sc-story__bd">
                             <?php
