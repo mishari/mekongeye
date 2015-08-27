@@ -328,30 +328,30 @@ function shortcode_map_group( $atts ) {
     ), $atts ) );
     $html = '<div class="sc-slice size-xl">';
     $html .= '<ul id="map-group" class="nav nav-tabs" role="tablist">';
-    $maps_group_data = jeo_get_mapgroup_data($id));
-    $maps = $maps_group_data->maps;
+    $maps_group_data = jeo_get_mapgroup_data($id);
+    $maps = $maps_group_data["maps"];
     foreach ($maps as $map) {
-        $html .= '<li role="presentation"><a href="#' . $map->ID . '" aria-controls="' . $map->ID  . '" role="tab" data-toggle="tab">' . $map->title . '</a></li>';
+        $html .= '<li role="presentation"><a href="#' . $map["id"] . '" aria-controls="' . $map["id"]  . '" role="tab" data-toggle="tab">' . $map["title"] . '</a></li>';
     }
     $html .= '</ul>';
     $html .= '<div class="tab-content">';
     foreach ($maps as $map) {
-        $html .= '<div role="tabpanel" class="tab-pane" id="' . $map->ID . '">';
+        $html .= '<div role="tabpanel" class="tab-pane" id="' . $map["id"] . '">';
         $html .= '<article class="sc-story option-image">';
         $html .= '<div class="sc-story__hd">';
         $html .= '<div class="map-container clearfix map-fill map-tall">';
-        $html .= '<div id="map_' . $map->ID . '_0"></div>';
+        $html .= '<div id="map_' . $map["id"] . '_0"></div>';
         $html .= '</div>';
-        $html .= '<script type="text/javascript">jeo({"postID":' . $map->ID . ',"count":0});</script>';
+        $html .= '<script type="text/javascript">jeo({"postID":' . $map["id"] . ',"count":0});</script>';
         $html .= '</div>';
-        $html .= '<a href="' . post_permalink($map->ID) . '">';
+        $html .= '<a href="' . post_permalink($map["id"]) . '">';
         $html .= '<div class="sc-story__bd">';
-        $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+        $kicker = wp_get_post_terms($post["id"], 'pub_type', array('fields' => 'names'));
         if ($kicker[0] != '') {
             $html .= '<p class="kicker">' . $kicker[0] . '</p>';
         }
-        $html .= '<h4>' . $map->title . '</h4>';
-        $html .= '<p class="dateline">' . get_the_date( 'j M Y', $map->ID ) . '</p>';
+        $html .= '<h4>' . $map["title"] . '</h4>';
+        $html .= '<p class="dateline">' . get_the_date( 'j M Y', $map["id"] ) . '</p>';
         $html .= '</div>';
         $html .= '</a>';
         $html .= '</article>';
