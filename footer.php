@@ -69,6 +69,7 @@
     <!-- end container -->
 
 	<!-- local scripts -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="/wp-content/themes/mekongeye/assets/javascript/global.js"></script>
 
 </body>
