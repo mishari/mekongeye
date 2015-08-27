@@ -322,6 +322,56 @@ function shortcode_section( $atts, $content=null ) {
 
 add_shortcode( 'section', 'shortcode_section' );
 
+function shortcode_map_group( $atts ) {
+    extract( shortcode_atts( array(
+        'id' => NULL,
+    ), $atts ) );
+    $html = '<div class="sc-slice size-xl">';
+    $html .= '<ul id="map-group" class="nav nav-tabs" role="tablist">';
+    $maps_group_data = jeo_get_mapgroup_data($id));
+    $maps = $maps_group_data->maps;
+    foreach ($maps as $map) {
+        $html .= '<li role="presentation"><a href="#' . $map->ID . '" aria-controls="' . $map->ID  . '" role="tab" data-toggle="tab">' . $map->title . '</a></li>';
+    }
+    $html .= '</ul>';
+    $html .= '<div class="tab-content">';
+    foreach ($maps as $map) {
+        $html .= '<div role="tabpanel" class="tab-pane" id="' . $map->ID . '">';
+        $html .= '<article class="sc-story option-image">';
+        $html .= '<div class="sc-story__hd">';
+        $html .= '<div class="map-container clearfix map-fill map-tall">';
+        $html .= '<div id="map_' . $map->ID . '_0"></div>';
+        $html .= '</div>';
+        $html .= '<script type="text/javascript">jeo({"postID":' . $map->ID . ',"count":0});</script>';
+        $html .= '</div>';
+        $html .= '<a href="' . post_permalink($map->ID) . '">';
+        $html .= '<div class="sc-story__bd">';
+        $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+        if ($kicker[0] != '') {
+            $html .= '<p class="kicker">' . $kicker[0] . '</p>';
+        }
+        $html .= '<h4>' . $map->title . '</h4>';
+        $html .= '<p class="dateline">' . get_the_date( 'j M Y', $map->ID ) . '</p>';
+        $html .= '</div>';
+        $html .= '</a>';
+        $html .= '</article>';
+        $html .= '</div>';
+    }
+    $html .= '</div>';
+    $html .= '</div>';
+    $html .= '<script>';
+    $html .= '$("#map-group a").click(function (e) {';
+    $html .= 'e.preventDefault()';
+    $html .= '$(this).tab("show")';
+    $html .= '})';
+    $html .= '</script>';
+    $html .= '}';
+
+    return $html;
+}
+
+add_shortcode( 'map_group', 'shortcode_map_group' );
+  
 function the_content_filter($content) {
     $block = "section";
     $rep = preg_replace("/(<p>)?\[($block)(\s[^\]]+)?\](<\/p>|<br \/>)?/","[$2$3]",$content);
