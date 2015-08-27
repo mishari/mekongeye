@@ -365,7 +365,6 @@ function shortcode_map_group( $atts ) {
     $html .= '$(this).tab("show")';
     $html .= '})';
     $html .= '</script>';
-    $html .= '}';
 
     return $html;
 }
