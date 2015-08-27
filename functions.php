@@ -330,13 +330,18 @@ function shortcode_map_group( $atts ) {
     $html .= '<ul id="map-group" class="nav nav-tabs" role="tablist">';
     $maps_group_data = jeo_get_mapgroup_data($id);
     $maps = $maps_group_data["maps"];
+    $first_map_id = reset($maps)["id"];
     foreach ($maps as $map) {
-        $html .= '<li role="presentation"><a href="#' . $map["id"] . '" aria-controls="' . $map["id"]  . '" role="tab" data-toggle="tab">' . $map["title"] . '</a></li>';
+        if($map["id"] == $first_map_id) {
+            $html .= '<li role="presentation" class="active"><a href="#' . $map["id"] . '" aria-controls="' . $map["id"]  . '" role="tab" data-toggle="tab">' . $map["title"] . '</a></li>';
+        } else {
+             $html .= '<li role="presentation"><a href="#' . $map["id"] . '" aria-controls="' . $map["id"]  . '" role="tab" data-toggle="tab">' . $map["title"] . '</a></li>';
+        }
     }
     $html .= '</ul>';
     $html .= '<div class="tab-content">';
     foreach ($maps as $map) {
-        $html .= '<div role="tabpanel" class="tab-pane" id="' . $map["id"] . '">';
+        $html .= '<div role="tabpanel" class="tab-pane active" id="' . $map["id"] . '">';
         $html .= '<article class="sc-story option-image">';
         $html .= '<div class="sc-story__hd">';
         $html .= '<div class="map-container clearfix map-fill map-tall">';
@@ -363,9 +368,15 @@ function shortcode_map_group( $atts ) {
     $html .= '$("#map-group a").click(function (e) {';
     $html .= 'e.preventDefault()';
     $html .= '$(this).tab("show")';
+    $html .= '$(this).hide().fadeIn("fast");';
     $html .= '})';
     $html .= '</script>';
-
+    $html .= '<script>';
+    $html .= '$(window).load(function(){';
+    $html .= '$("div.tab-content>div:gt(0)").removeClass("active")';
+    $html .= '});';
+    $html .= '</script>';
+    
     return $html;
 }
 
