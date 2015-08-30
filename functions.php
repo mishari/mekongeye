@@ -176,9 +176,9 @@ add_action( 'save_post', 'save_editor_pick' );
 
 function content_settings_box() {
     global $post;
-    $editor_pick = get_post_meta( $post->ID, 'pub_name', true);
-    $editor_pick = get_post_meta( $post->ID, 'source_link', true);
-    $editor_pick = get_post_meta( $post->ID, 'author_name', true);
+    $pub_name = get_post_meta( $post->ID, 'pub_name', true);
+    $source_link = get_post_meta( $post->ID, 'source_link', true);
+    $author_name = get_post_meta( $post->ID, 'author_name', true);
 ?>
     <input type="hidden" name="editor_pick_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ) ?>">
     <div id="content_settings_box">
