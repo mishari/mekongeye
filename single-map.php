@@ -3,12 +3,19 @@
 <?php if(have_posts()) : the_post(); ?>
     <?php
     set_posts_views($id);
-    $kicker = wp_get_post_terms($id, 'pub_type', array('fields' => 'names'));
-    if ($kicker[0] != '') {
-        $kicker = '<h3 class="kicker">' . $kicker[0] . '</h3>';
-    } else {
-        $kicker = '';
-    }
+    $pub_name   = get_post_meta( $id, 'pub_name' , true );
+    $source_link   = get_post_meta( $id, 'source_link', true );
+        if ($pub_name != '') {
+            if ($source_link != '') {
+                $pub_name = '<a href="' . $source_link . '"><h3 class="kicker">' . $pub_name . '</h3></a>';
+            }
+            else {
+                $pub_name = '<h3 class="kicker">' . $pub_name . '</h3>';
+            }
+        } else {
+       	    $pub_name = '';
+        }
+    $author_name   = get_post_meta( $id, 'author_name', true );
     ?>
     <div class="map">
         <?php jeo_map(); ?>
@@ -18,12 +25,12 @@
             <a name="content"></a>
             <article class="sequence">
                 <header class="sequence__hd">
-                    <?php echo $kicker ?>
+                    <?php echo $pub_name ?>
                     <h1><?php the_title(); ?></h1>
                     <h2 class="subhead">Subhead Here Below the Main Hed</h2>
                 </header>
                 <div class="sequence__meta">
-                    <p class="byline">By <strong><?php echo $author_first_name . ' ' . $author_last_name ?></strong></p>
+                    <p class="byline">By <strong><?php echo $author_name ?></strong></p>
                     <p class="dateline"><?php the_date( 'j M Y', '', '', true ); ?> </p>
                 </div>
                 <div class="sequence__bd">
