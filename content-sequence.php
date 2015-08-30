@@ -47,40 +47,6 @@
         <div id="sequence-image">
             <figure>
             <?php
-                $img_width = 100/$count;
-                $slider_width = 100 * $count;
-                $slide_time = intval($img_speed) * $count;
-                ?>
-                <style type="text/css">
-                    div#sequence-image { 
-                        overflow: hidden;
-                        max-width: 1080px;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                    div#sequence-image figure {
-                        position: relative; 
-                        width:<?php echo $slider_width ?>%;
-                        margin: 0; 
-                        padding: 0; 
-                        font-size: 0; 
-                        text-align: left;
-                        animation: <?php echo $slide_time ?>s slidy infinite;
-                    }
-                    @keyframes slidy {
-                        <?php for($index = 0; $index < $count; $index++) {
-                            echo ($img_width * $index) . '% { left: -' . (100 * $index) . '%; }';
-                        }
-                        ?>
-                        100% { left: -0%; }
-                    }
-                    div#sequence-image figure img { 
-                        width: <?php echo $img_width ?>%; 
-                        height: auto; 
-                        float: left; 
-                    }
-                </style>
-                <?php
                 $count = 0;
                 for ($index = 1; $index <= 5; $index++) {
                     $img_id = 'sequence_image_' . $index;
@@ -94,6 +60,40 @@
                 }
             ?>
             </figure>
+            <?php
+            $img_width = 100/$count;
+            $slider_width = 100 * $count;
+            $slide_time = intval($img_speed) * $count;
+            ?>
+            <style type="text/css">
+                div#sequence-image { 
+                    overflow: hidden;
+                    max-width: 1080px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                div#sequence-image figure {
+                    position: relative; 
+                    width:<?php echo $slider_width ?>%;
+                    margin: 0; 
+                    padding: 0; 
+                    font-size: 0; 
+                    text-align: left;
+                    animation: <?php echo $slide_time ?>s slidy infinite;
+                }
+                @keyframes slidy {
+                    <?php for($index = 0; $index < $count; $index++) {
+                        echo ($img_width * $index) . '% { left: -' . (100 * $index) . '%; }';
+                    }
+                    ?>
+                    100% { left: -0%; }
+                }
+                div#sequence-image figure img { 
+                    width: <?php echo $img_width ?>%; 
+                    height: auto; 
+                    float: left; 
+                }
+            </style>     
         </div>
         <?php } ?>
         <div class="main">
