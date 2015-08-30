@@ -148,7 +148,7 @@ $slide_time = intval($img_speed) * $count;
         padding: 0; 
         font-size: 0; 
         text-align: left;
-        animation: <?php echo slide_time ?>s slidy infinite;
+        animation: <?php echo $slide_time ?>s slidy infinite;
     }
     @keyframes slidy {
         <?php for($index = 0; $index < $count; $index++) {
