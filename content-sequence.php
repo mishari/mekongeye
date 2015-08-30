@@ -41,6 +41,9 @@
             );
     ?>
     <div class="container">
+        <?php if ($video_source != '') {
+            echo '<iframe width="1080" height="460" src="' . $video_source . '" frameborder="0" allowfullscreen></iframe>';
+        } else { ?>
         <div id="sequence-image">
             <figure>
             <?php
@@ -58,6 +61,7 @@
             ?>
             </figure>
         </div>
+        <?php } ?>
         <div class="main">
             <a name="content"></a>
             <article class="sequence">
@@ -68,7 +72,7 @@
                 </header>
                 <div class="sequence__meta">
                     <p class="byline">By <strong><?php echo $author_name ?></strong></p>
-                    <p class="dateline"><i><?php echo $story_location?>,</i> <?php the_date( 'j M Y', '', '', true ); ?> </p>
+                    <p class="dateline"><?php the_date( 'j M Y', '', '', true ); ?> </p>
                     <p class="source"><?php echo $pub_name ?></p>
                 </div>
                 <div class="sequence__bd">
