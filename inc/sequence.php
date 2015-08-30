@@ -53,6 +53,8 @@ function custom_enqueue_script( $hook_suffix ) {
 
 function sequence_settings_box() {
     global $post;
+    $video_source = get_post_meta( $post->ID, 'video_source', true);
+    $img_speed = get_post_meta( $post->ID, 'img_speed', true);
     $sequence_image_1 = get_post_meta( $post->ID, 'sequence_image_1', true);
     $sequence_image_2 = get_post_meta( $post->ID, 'sequence_image_2', true);
     $sequence_image_3 = get_post_meta( $post->ID, 'sequence_image_3', true);
@@ -63,6 +65,18 @@ function sequence_settings_box() {
     <div id="story_settings_box">
         <div class="metabox-tabs-div">
             <div id="genetal-tab" class="genetal-tab">
+                <div class="type-title">
+                    <h4>Video Source</h4>
+                </div>
+                <div class="settings">
+                    <input type="text" size="100" name="video_source" id="video_source" value="<?php echo $video_source ?>">
+                </div>
+                <div class="type-title">
+                    <h4>Speed per image</h4>
+                </div>
+                <div class="settings">
+                    <input type="text" size="5" name="img_speed" id="img_speed" value="<?php echo $img_speed ?>">
+                </div>
                 <div class="type-title">
                     <h4>Sequence Image 1</h4>
                 </div>
@@ -180,12 +194,16 @@ function save_sequence_settings ( $post_id ) {
         return $post_id;
     }
 
+    $video_source = $_POST['video_source'];
+    $img_speed = $_POST['img_speed'];
     $sequence_image_1 = $_POST['sequence_image_1'];
     $sequence_image_2 = $_POST['sequence_image_2'];
     $sequence_image_3 = $_POST['sequence_image_3'];
     $sequence_image_4 = $_POST['sequence_image_4'];
     $sequence_image_5 = $_POST['sequence_image_5'];
 
+    update_post_meta($post_id, 'video_source', $video_source);
+    update_post_meta($post_id, 'img_speed', $img_speed);
     update_post_meta($post_id, 'sequence_image_1', $sequence_image_1);
     update_post_meta($post_id, 'sequence_image_2', $sequence_image_2);
     update_post_meta($post_id, 'sequence_image_3', $sequence_image_3); 
