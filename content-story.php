@@ -1,23 +1,24 @@
 <?php get_header(); ?>
 
 <?php if(have_posts()) : the_post(); ?>
-	<?php 
-	set_posts_views($id);
-	$pub_name   = get_post_meta( $id, 'pub_name' , true );
-        $source_link   = get_post_meta( $id, 'source_link', true );
-        if ($pub_name != '') {
-            if ($source_link != '') {
-                $pub_name = '<a href="' . $source_link . '"><h3 class="kicker">' . $pub_name . '</h3></a>';
-            }
-            else {
-                $pub_name = '<h3 class="kicker">' . $pub_name . '</h3>';
-            }
-        } else {
-       	    $pub_name = '';
-        }
-        $author_name   = get_post_meta( $id, 'author_name', true );
-	$story_location   = get_post_meta( $id, 'geocode_address', true );
-	$arg_defaults = array(
+    <?php 
+    set_posts_views($id);
+    $pub_name   = get_post_meta( $id, 'pub_name' , true );
+    $source_link   = get_post_meta( $id, 'source_link', true );
+    if ($pub_name != '' and $source_link != '') {
+        $pub_name = '<a href="' . $source_link . '">' . $pub_name . '</a>';
+    } else {
+        $pub_name = '';
+    }
+    $kicker = wp_get_post_terms($id, 'pub_type', array('fields' => 'names'));
+    if ($kicker[0] != '') {
+        $kicker = '<h3 class="kicker">' . $kicker[0] . '</h3>';
+    } else {
+        $kicker = '';
+    }
+    $author_name   = get_post_meta( $id, 'author_name', true );
+    $story_location   = get_post_meta( $id, 'geocode_address', true );
+    $arg_defaults = array(
             'width'              => 1080,
             'height'             => 460,
             'crop'               => true,
@@ -34,31 +35,32 @@
         if ($image_src != '') {
             $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_defaults ) . '" alt="' . get_the_title() . '" />';
         }
-	?>
+    ?>
 
-	<div class="main">
-		<article id="content" class="story">
-			<header class="story__hd">
-				<?php echo $pub_name ?>
-				<h1><?php the_title(); ?></h1>
-			</header>
-			<?php
-			if ( has_post_thumbnail() ) {?>
-				<div class="story__big-image">
-					<?php echo $featured_image; ?>
-				</div>
-			<?php
-			}
-			?>
-			<div class="story__meta">
-				<p class="byline">By <strong><?php echo $author_name ?></strong></p>
-				<p class="dateline"><i><?php echo $story_location?>,</i> <?php the_date( 'j M Y', '', '', true ); ?> </p>
-			</div>
-			<div class="story__bd">
-				<?php the_content(); ?>
-			</div>
-		</article>
-		<section class="sc-container">
+    <div class="main">
+        <article id="content" class="story">
+            <header class="story__hd">
+                <?php echo $kicker ?>
+                <h1><?php the_title(); ?></h1>
+            </header>
+            <?php
+            if ( has_post_thumbnail() ) {?>
+                <div class="story__big-image">
+                    <?php echo $featured_image; ?>
+                </div>
+            <?php
+            }
+            ?>
+            <div class="story__meta">
+                <p class="byline">By <strong><?php echo $author_name ?></strong></p>
+                <p class="dateline"><i><?php echo $story_location?>,</i> <?php the_date( 'j M Y', '', '', true ); ?> </p>
+                <p class="source"><?php echo $pub_name ?></p>
+            </div>
+            <div class="story__bd">
+                <?php the_content(); ?>
+            </div>
+        </article>
+        <section class="sc-container">
 
                 <h2>Related</h2>
 
@@ -112,7 +114,7 @@
                 <!-- / slice -->
 
             </section>
-	</div>
+    </div>
 
 <?php endif; ?>
 
