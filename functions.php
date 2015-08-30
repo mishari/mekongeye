@@ -216,7 +216,7 @@ function content_settings() {
             'Content Settings Box',
             'content_settings_box',
             $type,
-            'side'
+            'normal'
         );
     }        
 }
