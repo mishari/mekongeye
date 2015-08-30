@@ -174,6 +174,89 @@ function save_editor_pick ( $post_id ) {
 add_action( 'admin_init', 'editor_pick_settings' );
 add_action( 'save_post', 'save_editor_pick' );
 
+function content_settings_box() {
+    global $post;
+    $editor_pick = get_post_meta( $post->ID, 'pub_name', true);
+    $editor_pick = get_post_meta( $post->ID, 'source_link', true);
+    $editor_pick = get_post_meta( $post->ID, 'author_name', true);
+?>
+    <input type="hidden" name="editor_pick_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ) ?>">
+    <div id="content_settings_box">
+        <div class="metabox-tabs-div">
+            <div id="genetal-tab" class="genetal-tab">
+                <div class="type-title">
+                    <h4>Publication Name</h4>
+                </div>
+                <div class="settings">
+                    <input type="text" size="100" name="pub_name" id="pub_name" value="<?php echo $pub_name ?>">
+                </div>
+                <div class="type-title">
+                    <h4>Source link</h4>
+                </div>
+                <div class="settings">
+                    <input type="text" size="100" name="source_link" id="source_link" value="<?php echo $source_link ?>">
+                </div>
+                <div class="type-title">
+                    <h4>Author Name</h4>
+                </div>
+                <div class="settings">
+                    <input type="text" size="100" name="author_name" id="author_name" value="<?php echo $author_name ?>">
+                </div>
+            </div>
+        </div>
+    </div>
+<?php
+}
+
+function content_settings() {
+    $types = array('post', 'link', 'sequence', 'map');
+    foreach ($types as $type) {
+        add_meta_box (
+            'content_settings_box',
+            'Content Settings Box',
+            'content_settings_box',
+            $type,
+            'side'
+        );
+    }        
+}
+
+/* Save data for per story setting */
+function save_content_settings ( $post_id ) {
+    if ( ! array_key_exists( 'editor_pick_meta_box_nonce', $_POST ) ) {
+        $_POST['editor_pick_meta_box_nonce'] = '';
+    }
+
+    // verify nonce
+    if ( ! wp_verify_nonce( $_POST['editor_pick_meta_box_nonce'], basename( __FILE__ ) ) ) {
+        return $post_id;
+    }
+
+    // check autosave
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return $post_id;
+    }
+
+    $pub_name = $_POST['pub_name'];
+    $source_link = $_POST['source_link'];
+    $author_name = $_POST['author_name'];
+
+    update_post_meta($post_id, 'pub_name', $pub_name);
+    update_post_meta($post_id, 'source_link', $source_link);
+    update_post_meta($post_id, 'author_name', $author_name);
+
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count == ''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, 0);
+    }
+}
+
+add_action( 'admin_init', 'content_settings' );
+add_action( 'save_post', 'save_content_settings' );
+
 function set_posts_views($postID) {
     $count_key = 'post_views_count';
     $count = get_post_meta($postID, $count_key, true);
