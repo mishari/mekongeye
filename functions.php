@@ -472,6 +472,20 @@ function the_content_filter($content) {
 return $rep;
 }
 
+function geocode_add_meta_box() {
+    $jeo_markers = new JEO_Markers();
+    add_meta_box(
+        'geocoding-address',
+        __('Address and geolocation', 'jeo'),
+        array($jeo_markers, 'geocode_box'),
+        'page',
+        'advanced',
+        'high'
+    );
+}
+add_action( 'admin_init', 'geocode_add_meta_box' );
+
+
 add_filter("the_content", "the_content_filter");
 
 ?>
