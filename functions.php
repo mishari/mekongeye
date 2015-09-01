@@ -257,6 +257,68 @@ function save_content_settings ( $post_id ) {
 add_action( 'admin_init', 'content_settings' );
 add_action( 'save_post', 'save_content_settings' );
 
+function page_map_setting_box() {
+    global $post;
+    $map_id = get_post_meta( $post->ID, 'map_id', true);
+?>
+    <input type="hidden" name="page_map_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ) ?>">
+    <div id="page_map_setting_box">
+        <div class="metabox-tabs-div">
+            <div id="genetal-tab" class="genetal-tab">
+                <div class="type-title">
+                    <h4>Map ID</h4>
+                </div>
+                <div class="settings">
+                    <input type="text" size="100" name="map_id" id="map_id" value="<?php echo $map_id ?>">
+                </div>
+            </div>
+        </div>
+    </div>
+<?php
+}
+
+function page_map_setting() {
+    add_meta_box (
+        'page_map_setting_box',
+        'Map Settings Box',
+        'page_map_setting_box',
+        'page',
+        'normal'
+    );    
+}
+
+/* Save data for per story setting */
+function save_page_map_settings ( $post_id ) {
+    if ( ! array_key_exists( 'page_map_meta_box_nonce', $_POST ) ) {
+        $_POST['page_map_meta_box_nonce'] = '';
+    }
+
+    // verify nonce
+    if ( ! wp_verify_nonce( $_POST['page_map_meta_box_nonce'], basename( __FILE__ ) ) ) {
+        return $post_id;
+    }
+
+    // check autosave
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return $post_id;
+    }
+
+    $map_id = $_POST['map_id'];
+
+    update_post_meta($post_id, 'map_id', $map_id);
+
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count == ''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, 0);
+    }
+}
+
+add_action( 'admin_init', 'page_map_setting' );
+add_action( 'save_post', 'save_page_map_settings' );
+
 function set_posts_views($postID) {
     $count_key = 'post_views_count';
     $count = get_post_meta($postID, $count_key, true);
@@ -471,7 +533,6 @@ function the_content_filter($content) {
     $rep = preg_replace("/(<p>)?\[\/($block)](<\/p>|<br \/>)?/","[/$2]",$rep);
 return $rep;
 }
-
 add_filter("the_content", "the_content_filter");
 
 ?>
