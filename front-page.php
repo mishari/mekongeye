@@ -304,8 +304,7 @@ $arg_medium = array(
             );
             $posts = get_posts( $args );
             foreach ( $posts as $post ) {
-                $author_first_name = get_the_author_meta( 'first_name', $post->post_author );
-                $author_last_name = get_the_author_meta( 'last_name', $post->post_author );
+            	$author_name = get_post_meta( $post->ID, 'author_name', true );
             ?>
                 <article class="sc-story">
                     <?php 
@@ -321,7 +320,7 @@ $arg_medium = array(
                             <?php
                             $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
                             ?>
-                            <h4><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?><?php echo $post->post_title; ?><i class="dateline"> <?php echo $author_first_name . ' ' . $author_last_name; ?></i></h4>
+                            <h4><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?><?php echo $post->post_title; ?><i class="dateline"> <?php echo $author_name; ?></i></h4>
                         </div>
                     </a>
                 </article>
@@ -346,8 +345,7 @@ $arg_medium = array(
             );
             $posts = get_posts( $args );
             foreach ( $posts as $post ) {
-                $author_first_name = get_the_author_meta( 'first_name', $post->post_author );
-                $author_last_name = get_the_author_meta( 'last_name', $post->post_author );
+                $author_name = get_post_meta( $post->ID, 'author_name', true );
             ?>
                 <article class="sc-story">
                     <?php 
@@ -363,7 +361,7 @@ $arg_medium = array(
                             <?php
                             $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
                             ?>
-                            <h4><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?><?php echo $post->post_title; ?><i class="dateline"> <?php echo $author_first_name . ' ' . $author_last_name; ?></i></h4>
+                            <h4><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?><?php echo $post->post_title; ?><i class="dateline"> <?php echo $author_name; ?></i></h4>
                         </div>
                     </a>
                 </article>
@@ -389,8 +387,7 @@ $arg_medium = array(
             );
             $posts = get_posts( $args );
             foreach ( $posts as $post ) {
-                $author_first_name = get_the_author_meta( 'first_name', $post->post_author );
-                $author_last_name = get_the_author_meta( 'last_name', $post->post_author );
+                $author_name = get_post_meta( $post->ID, 'author_name', true );
             ?>
                 <article class="sc-story">
                     <?php 
@@ -406,7 +403,7 @@ $arg_medium = array(
                             <?php
                             $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
                             ?>
-                            <h4><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?><?php echo $post->post_title; ?><i class="dateline"> <?php echo $author_first_name . ' ' . $author_last_name; ?></i></h4>
+                            <h4><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?><?php echo $post->post_title; ?><i class="dateline"> <?php echo $author_name; ?></i></h4>
                         </div>
                     </a>
                 </article>
@@ -447,8 +444,7 @@ $arg_medium = array(
             );
             $posts = get_posts( $args );
             foreach ( $posts as $post ) {
-                $author_first_name = get_the_author_meta( 'first_name', $post->post_author );
-                $author_last_name = get_the_author_meta( 'last_name', $post->post_author );
+                $author_name = get_post_meta( $post->ID, 'author_name', true );
             ?>
                 <article class="sc-story">
                     <?php 
@@ -464,7 +460,7 @@ $arg_medium = array(
                             <?php
                             $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
                             ?>
-                            <h4><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?><?php echo $post->post_title; ?><i class="dateline"> <?php echo $author_first_name . ' ' . $author_last_name; ?></i></h4>
+                            <h4><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?><?php echo $post->post_title; ?><i class="dateline"> <?php echo $author_name; ?></i></h4>
                         </div>
                     </a>
                 </article>
