@@ -28,8 +28,12 @@ $args = array(
     'pub_type'         => $pub_type_name
 );
 $posts = get_posts( $args );
+$map_id = get_post_meta( $post->ID, 'map_id', true);
 ?>
-		
+<div class="map-container clearfix map-fill map-tall">
+    <div id="map_<?php echo $map_id; ?>_0"></div>
+</div>
+<script type="text/javascript">jeo({"postID":<?php echo $map_id; ?>,"count":0});</script>
 <div class="main">
     <a name="content"></a>
     <div class="map map-vertical">
@@ -71,10 +75,9 @@ $posts = get_posts( $args );
                     
                     <h2><?php echo $post->post_title ?></h2>
                     <?php
-                    $author_first_name = get_the_author_meta( 'first_name', $post->post_author );
-                    $author_last_name = get_the_author_meta( 'last_name', $post->post_author );
+                    $author_name = get_post_meta( $post->ID, 'author_name', true);
                     ?>
-                    <p class="byline">By <?php echo $author_first_name . ' ' . $author_last_name ?></p>
+                    <p class="byline">By <?php echo $author_name; ?></p>
                     <?php
                         $date = get_the_date( 'j M Y', $post->ID );
                     ?>
