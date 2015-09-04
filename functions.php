@@ -218,7 +218,7 @@ function content_settings() {
             $type,
             'normal'
         );
-    }        
+    }
 }
 
 /* Save data for per story setting */
@@ -534,5 +534,12 @@ function the_content_filter($content) {
 return $rep;
 }
 add_filter("the_content", "the_content_filter");
+
+function remove_category_box() {
+    $types = array('post', 'link', 'sequence', 'map', 'page');
+    foreach ($types as $type) {
+       remove_meta_box( 'categorydiv', $type, 'side' );
+    }
+}
 
 ?>
