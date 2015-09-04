@@ -542,4 +542,6 @@ function remove_category_box() {
     }
 }
 
+add_action( 'admin_init', 'remove_category_box' );
+
 ?>
