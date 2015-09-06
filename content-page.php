@@ -77,7 +77,10 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                     ?>
                     <p class="byline">By <?php echo $author_name ?></p>
                     <?php
-                        $date = get_the_date( 'j M Y', $post->ID );
+                        $date = get_post_meta( $post->ID, 'date', true);
+                        if ($date == '') {
+                            $date = get_the_date( 'j M Y', $post->ID );
+                        }
                     ?>
                     <p class="dateline"><?php echo $date ?></p>
                 </div>
