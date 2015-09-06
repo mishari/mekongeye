@@ -39,6 +39,10 @@
             'return'             => 'url',
             'background_fill'    => null
             );
+    $date = get_post_meta( $id, 'date', true);
+    if ($date == '') {
+        $date = get_the_date( 'j M Y', $id );
+    }
     ?>
     <div class="container">
         <?php if ($video_source != '') {
@@ -106,7 +110,7 @@
                 </header>
                 <div class="sequence__meta">
                     <p class="byline">By <strong><?php echo $author_name ?></strong></p>
-                    <p class="dateline"><?php the_date( 'j M Y', '', '', true ); ?> </p>
+                    <p class="dateline"><?php echo $date; ?> </p>
                     <p class="source"><?php echo $pub_name ?></p>
                 </div>
                 <div class="sequence__bd">
