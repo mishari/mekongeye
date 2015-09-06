@@ -32,18 +32,6 @@ function revcon_change_post_object() {
     $labels->name_admin_bar = 'Story';
 }
 
-function include_template_story( $template_path ) {
-    if ( get_post_type() == 'post' ) {
-        if ( is_single() ) {
-            $template_path = get_stylesheet_directory() . '/content-story.php';
-        }
-    }
-
-    return $template_path;
-}
-
 /* Add action to wp function */
-
-add_filter( 'template_include', 'include_template_story' );
 add_action( 'admin_menu', 'revcon_change_post_label' );
 add_action( 'init', 'revcon_change_post_object' );
