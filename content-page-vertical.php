@@ -52,10 +52,12 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                 if (has_post_thumbnail($post->ID)) {
                 ?>
                     <div class="sv-story__hd">
+                        <a href="<?php echo post_permalink($post->ID); ?>">
                         <?php
                         $thumbnail = get_the_post_thumbnail( $post->ID );
                         echo $thumbnail;
                         ?>
+                        </a>
                     </div>
                 <?php
                 }
