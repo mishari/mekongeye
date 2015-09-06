@@ -454,7 +454,10 @@ function shortcode_posts( $atts ) {
                 $html .= '<p class="kicker">' . $kicker[0] . '</p>';
             }
             $html .= '<h4>' . $post->post_title . '</h4>';
-            $date = get_the_date( 'j M Y', $post->ID );
+            $date = get_post_meta( $post->ID, 'date', true);
+            if ($date == '') {
+                $date = get_the_date( 'j M Y', $post->ID );
+            }
             $html .= '<p class="dateline">' . $date . '</p>';
             $html .= '</div>';
             $html .= '</a>';
@@ -519,7 +522,11 @@ function shortcode_map_group( $atts ) {
             $html .= '<p class="kicker">' . $kicker[0] . '</p>';
         }
         $html .= '<h4>' . $map["title"] . '</h4>';
-        $html .= '<p class="dateline">' . get_the_date( 'j M Y', $map["id"] ) . '</p>';
+        $date = get_post_meta( $post->ID, 'date', true);
+        if ($date == '') {
+            $date = get_the_date( 'j M Y', $post->ID );
+        }
+        $html .= '<p class="dateline">' . $date . '</p>';
         $html .= '</div>';
         $html .= '</a>';
         $html .= '</article>';
