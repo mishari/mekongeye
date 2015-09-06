@@ -84,8 +84,14 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                     <p class="dateline"><?php echo $date ?></p>
                 </div>
                 <div class="sv-story__ft">
-                    <?php echo $post->post_excerpt; ?>
-                    <p class="more"><a href="<?php echo post_permalink($post->ID); ?>">read more &raquo;</a> </p>
+                    <?php 
+                        echo $post->post_excerpt;
+                        $custom_link_text = get_post_meta( $post->ID, 'custom_link_text', true);
+                        if ($custom_link_text == '') {
+                            $custom_link_text = 'read more &raquo;';
+                        }
+                    ?>
+                    <p class="more"><a href="<?php echo post_permalink($post->ID); ?>"><?php echo $custom_link_text ?></a></p>
                 </div>
             </article>
             <?php } ?>
