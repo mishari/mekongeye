@@ -35,6 +35,10 @@
         if ($image_src != '') {
             $featured_image = '<img src="' . wpthumb( $image_src[0], $arg_defaults ) . '" alt="' . get_the_title() . '" />';
         }
+    $date = get_post_meta( $id, 'date', true);
+    if ($date == '') {
+        $date = get_the_date( 'j M Y', $id );
+    }
     ?>
 
     <div class="main">
@@ -53,7 +57,7 @@
             ?>
             <div class="story__meta">
                 <p class="byline">By <strong><?php echo $author_name ?></strong></p>
-                <p class="dateline"><i><?php echo $story_location?>,</i> <?php the_date( 'j M Y', '', '', true ); ?> </p>
+                <p class="dateline"><i><?php echo $story_location?>,</i> <?php echo $date; ?> </p>
                 <p class="source"><?php echo $pub_name ?></p>
             </div>
             <div class="story__bd">
