@@ -180,6 +180,7 @@ function content_settings_box() {
     $source_link = get_post_meta( $post->ID, 'source_link', true);
     $author_name = get_post_meta( $post->ID, 'author_name', true);
     $date = get_post_meta( $post->ID, 'date', true);
+    $custom_link_text = get_post_meta( $post->ID, 'custom_link_text', true);
 ?>
     <input type="hidden" name="content_setting_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ) ?>">
     <div id="content_settings_box">
@@ -208,6 +209,12 @@ function content_settings_box() {
                 </div>
                 <div class="settings">
                     <input type="text" size="100" name="date" id="date" value="<?php echo $date ?>">
+                </div>
+                <div class="type-title">
+                    <h4>Custom Link Text</h4>
+                </div>
+                <div class="settings">
+                    <input type="text" size="100" name="custom_link_text" id="custom_link_text" value="<?php echo $custom_link_text ?>">
                 </div>
             </div>
         </div>
@@ -248,11 +255,13 @@ function save_content_settings ( $post_id ) {
     $source_link = $_POST['source_link'];
     $author_name = $_POST['author_name'];
     $date = $_POST['date'];
+    $custom_link_text = $_POST['custom_link_text'];
 
     update_post_meta($post_id, 'pub_name', $pub_name);
     update_post_meta($post_id, 'source_link', $source_link);
     update_post_meta($post_id, 'author_name', $author_name);
     update_post_meta($post_id, 'date', $date);
+    update_post_meta($post_id, 'custom_link_text', $custom_link_text);
 
     $count_key = 'post_views_count';
     $count = get_post_meta($postID, $count_key, true);
