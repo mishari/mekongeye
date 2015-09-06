@@ -211,19 +211,7 @@ function save_sequence_settings ( $post_id ) {
     update_post_meta($post_id, 'sequence_image_5', $sequence_image_5);    
 }
 
-function include_template_sequence( $template_path ) {
-    if ( get_post_type() == 'sequence' ) {
-        if ( is_single() ) {
-            $template_path = get_stylesheet_directory() . '/content-sequence.php';
-        }
-    }
-
-    return $template_path;
-}
-
-
 /* Add action to wp function */
-add_filter('template_include', 'include_template_sequence' );
 add_action( 'admin_enqueue_scripts', 'custom_enqueue_script' );
 add_action( 'admin_init', 'sequence_settings' );
 add_action('save_post', 'save_sequence_settings' );
