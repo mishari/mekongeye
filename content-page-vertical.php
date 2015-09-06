@@ -33,10 +33,9 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
 <div class="main">
     <a name="content"></a>
     <div class="map map-vertical">
-        <div class="map-container clearfix map-fill map-tall">
-            <div id="map_<?php echo $map_id; ?>_0"></div>
+       <div class="map-container clearfix map-fill map-tall">
+            <?php jeo_map($map_id=$map_id); ?>
         </div>
-        <script type="text/javascript">jeo({"postID":<?php echo $map_id; ?>,"count":0});</script>
     </div>
 
     <div class="section-list-vertical">
