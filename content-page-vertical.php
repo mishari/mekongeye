@@ -81,7 +81,7 @@ if ($pub_name != '' and $source_link != '') {
                     }
                     ?>
                     
-                    <h2><?php echo $post->post_title ?></h2>
+                    <h2><a href="<?php echo post_permalink($post->ID); ?>"><?php echo $post->post_title ?></a></h2>
                     <?php
                     $author_name = get_post_meta( $post->ID, 'author_name', true);
                     ?>
