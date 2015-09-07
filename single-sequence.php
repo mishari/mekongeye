@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
-<?php if(have_posts()) : the_post(); ?>
-    <?php
+<?php if(have_posts()) : the_post();
     set_posts_views($id);
     $pub_name = get_post_meta( $id, 'pub_name' , true );
     $source_link = get_post_meta( $id, 'source_link', true );
@@ -27,7 +26,6 @@
             array_push($img_list, '<img src="' . wpthumb( $sequence_image, $arg_defaults ) . '"/>');
             $count++;
         }
-
     }
 
     $img_speed = get_post_meta( $id, 'img_speed' , true );
@@ -97,6 +95,7 @@
                 </a>
             </div>
         </div>
+        <?php } ?>
 
         <div class="main">
             <a name="content"></a>
