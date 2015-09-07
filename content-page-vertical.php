@@ -53,8 +53,13 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                 if (has_post_thumbnail($post->ID)) {
                 ?>
                     <div class="sv-story__hd">
-                        <a href="<?php echo post_permalink($post->ID); ?>">
                         <?php
+                        if ($post->post_type == 'link') {
+                            $link = get_post_meta($post->ID, 'link_target', true);
+                            echo '<a href="' . $link .'">';
+                        } else {
+                            echo '<a href="' . post_permalink($post->ID) .'">';
+                        }
                         $thumbnail = get_the_post_thumbnail( $post->ID );
                         echo $thumbnail;
                         ?>
@@ -105,7 +110,18 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                             $custom_link_text = 'read more';
                         }
                     ?>
-                    <p class="more"><a href="<?php echo post_permalink($post->ID); ?>"><?php echo $custom_link_text ?> &raquo;</a></p>
+                    <p class="more">
+                        <?php
+                        if ($post->post_type == 'link') {
+                            $link = get_post_meta($post->ID, 'link_target', true);
+                            echo '<a href="' . $link .'">';
+                        } else {
+                            echo '<a href="' . post_permalink($post->ID) .'">';
+                        }
+                        echo $custom_link_text ?> &raquo;
+                        ?>
+                        </a>
+                    </p>
                 </div>
             </article>
             <?php } ?>
