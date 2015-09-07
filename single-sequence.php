@@ -16,18 +16,6 @@
         $kicker = '';
     }
     $author_name = get_post_meta( $id, 'author_name', true );
-    $count = 0;
-    $img_list = array();
-
-    for ($index = 1; $index <= 5; $index++) {
-        $img_id = 'sequence_image_' . $index;
-        $sequence_image = get_post_meta( $id, $img_id, true );
-        if ($sequence_image != '') {
-            array_push($img_list, '<img src="' . wpthumb( $sequence_image, $arg_defaults ) . '"/>');
-            $count++;
-        }
-    }
-
     $img_speed = get_post_meta( $id, 'img_speed' , true );
     $video_source = get_post_meta( $id, 'video_source' , true );
     $story_location = get_post_meta( $id, 'geocode_address', true );
@@ -47,6 +35,17 @@
     $date = get_post_meta( $id, 'date', true);
     if ($date == '') {
         $date = get_the_date( 'j M Y', $id );
+    }
+    $count = 0;
+    $img_list = array();
+
+    for ($index = 1; $index <= 5; $index++) {
+        $img_id = 'sequence_image_' . $index;
+        $sequence_image = get_post_meta( $id, $img_id, true );
+        if ($sequence_image != '') {
+            array_push($img_list, '<img src="' . wpthumb( $sequence_image, $arg_defaults ) . '"/>');
+            $count++;
+        }
     }
     ?>
     <div class="container">
