@@ -29,6 +29,13 @@ $args = array(
 );
 $posts = get_posts( $args );
 $map_id = get_post_meta( $post->ID, 'map_id', true);
+$pub_name   = get_post_meta( $id, 'pub_name' , true );
+$source_link   = get_post_meta( $id, 'source_link', true );
+if ($pub_name != '' and $source_link != '') {
+    $pub_name = '<a href="' . $source_link . '">' . $pub_name . '</a>';
+} else {
+    $pub_name = '';
+}
 ?>
 <div class="map-container clearfix map-fill map-tall">
     <div id="map_<?php echo $map_id; ?>_0"></div>
@@ -83,6 +90,7 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                         }
                     ?>
                     <p class="dateline"><?php echo $date ?></p>
+                    <p class="source"><?php echo $pub_name ?></p>
                 </div>
                 <div class="sv-story__ft">
                     <?php
