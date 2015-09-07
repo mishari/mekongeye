@@ -90,6 +90,15 @@ if ($pub_name != '' and $source_link != '') {
                         }
                     ?>
                     <p class="dateline"><?php echo $date ?></p>
+                    <?php
+                    $pub_name   = get_post_meta( $post->ID, 'pub_name' , true );
+                    $source_link   = get_post_meta( $post->ID, 'source_link', true );
+                    if ($pub_name != '' and $source_link != '') {
+                        $pub_name = '<a href="' . $source_link . '">' . $pub_name . '</a>';
+                    } else {
+                        $pub_name = '';
+                    }
+                    ?>
                     <p class="source"><?php echo $pub_name ?></p>
                 </div>
                 <div class="sv-story__ft">
