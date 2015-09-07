@@ -83,7 +83,16 @@ if ($pub_name != '' and $source_link != '') {
                     }
                     ?>
                     
-                    <h2><a href="<?php echo post_permalink($post->ID); ?>"><?php echo $post->post_title ?></a></h2>
+                    <h2>
+                        <?php
+                        if ($post->post_type == 'link') {
+                            $link = get_post_meta($post->ID, 'link_target', true);
+                            echo '<a href="' . $link .'">';
+                        } else {
+                            echo '<a href="' . post_permalink($post->ID) .'">';
+                        }
+                        ?><?php echo $post->post_title ?></a>
+                    </h2>
                     <?php
                     $author_name = get_post_meta( $post->ID, 'author_name', true);
                     ?>
