@@ -64,7 +64,7 @@
                             echo '<li data-target="#sequence-carousel" data-slide-to="0" class="active"></li>';
                         }
                         else {
-                            echo '<li data-target="#sequence-carousel" data-slide-to="' . $index . '"></li>'
+                            echo '<li data-target="#sequence-carousel" data-slide-to="' . $index . '"></li>';
                         }
                     }
                 ?>
