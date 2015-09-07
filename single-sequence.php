@@ -17,11 +17,18 @@
         $kicker = '';
     }
     $author_name = get_post_meta( $id, 'author_name', true );
-    $sequence_image_1 = get_post_meta( $id, 'sequence_image_1', true );
-    $sequence_image_2 = get_post_meta( $id, 'sequence_image_2', true );
-    $sequence_image_3 = get_post_meta( $id, 'sequence_image_3', true );
-    $sequence_image_4 = get_post_meta( $id, 'sequence_image_4', true );
-    $sequence_image_5 = get_post_meta( $id, 'sequence_image_5', true );
+    $count = 0;
+    $img_list = array();
+
+    for ($index = 1; $index <= 5; $index++) {
+        $img_id = 'sequence_image_' . $index;
+        $sequence_image = get_post_meta( $id, $img_id, true );
+        if ($sequence_image != '') {
+            array_push($img_list, '<img src="' . wpthumb( $sequence_image, $arg_defaults ) . '"/>');
+            $count++;
+        }
+
+    }
 
     $img_speed = get_post_meta( $id, 'img_speed' , true );
     $video_source = get_post_meta( $id, 'video_source' , true );
@@ -49,57 +56,47 @@
             echo '<iframe width="1080" height="460" src="' . $video_source . '" frameborder="0" allowfullscreen></iframe>';
         } else { ?>
         <div id="sequence-image">
-            <figure>
-            <?php
-                $count = 0;
-                for ($index = 1; $index <= 5; $index++) {
-                    $img_id = 'sequence_image_' . $index;
-                    $sequence_image = get_post_meta( $id, $img_id, true );
-                    
-                    if ($sequence_image != '') {
-                        echo '<img src="' . wpthumb( $sequence_image, $arg_defaults ) . '"/>';
-                        $count++;
+            <div id="sequence-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                <?php
+                    for ($index = 0; $index < $count; $index++) {
+                        if ($index == 0) {
+                            echo '<li data-target="#sequence-carousel" data-slide-to="0" class="active"></li>';
+                        }
+                        else {
+                            echo '<li data-target="#sequence-carousel" data-slide-to="' . $index . '"></li>'
+                        }
                     }
-
-                }
-            ?>
-            </figure>
-            <?php
-            $img_width = 100/$count;
-            $slider_width = 100 * $count;
-            $slide_time = intval($img_speed) * $count;
-            ?>
-            <style type="text/css">
-                div#sequence-image { 
-                    overflow: hidden;
-                    max-width: 1080px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-                div#sequence-image figure {
-                    position: relative; 
-                    width:<?php echo $slider_width ?>%;
-                    margin: 0; 
-                    padding: 0; 
-                    font-size: 0; 
-                    text-align: left;
-                    animation: <?php echo $slide_time ?>s slidy infinite;
-                }
-                @keyframes slidy {
-                    <?php for($index = 0; $index < $count; $index++) {
-                        echo ($img_width * $index) . '% { left: -' . (100 * $index) . '%; }';
+                ?>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <?php
+                    for ($index = 0; $index < $count; $index++) {
+                        if ($index == 0) {
+                            echo '<div class="item active">';
+                        }
+                        else {
+                            echo '<div class="item">'
+                        }
+                        echo $img_list[$index];
+                        echo '<div class="carousel-caption">';
+                        echo 'image caption';
+                        echo '</div>';
+                        echo '</div>'
                     }
                     ?>
-                    100% { left: -0%; }
-                }
-                div#sequence-image figure img { 
-                    width: <?php echo $img_width ?>%; 
-                    height: auto; 
-                    float: left; 
-                }
-            </style>     
-        </div>
-        <?php } ?>
+                </div>
+
+                <a class="left carousel-control" href="#sequence-carousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#sequence-carousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
         <div class="main">
             <a name="content"></a>
             <article class="sequence">
