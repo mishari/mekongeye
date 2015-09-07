@@ -131,7 +131,7 @@ if ($pub_name != '' and $source_link != '') {
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
                         }
-                        echo $custom_link_text
+                        echo $custom_link_text;
                         ?>
                          &raquo</a>
                     </p>
