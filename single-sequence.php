@@ -96,6 +96,7 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+        </div>
 
         <div class="main">
             <a name="content"></a>
