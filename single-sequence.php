@@ -76,7 +76,7 @@
                             echo '<div class="item active">';
                         }
                         else {
-                            echo '<div class="item">'
+                            echo '<div class="item">';
                         }
                         echo $img_list[$index];
                         echo '<div class="carousel-caption">';
