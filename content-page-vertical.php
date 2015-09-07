@@ -126,9 +126,9 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
                         }
-                        echo $custom_link_text ?> &raquo;
+                        echo $custom_link_text;
                         ?>
-                        </a>
+                         &raquo</a>
                     </p>
                 </div>
             </article>
