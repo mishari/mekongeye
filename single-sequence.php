@@ -82,7 +82,7 @@
                         echo '<div class="carousel-caption">';
                         echo 'image caption';
                         echo '</div>';
-                        echo '</div>'
+                        echo '</div>';
                     }
                     ?>
                 </div>
