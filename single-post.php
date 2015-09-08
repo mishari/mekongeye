@@ -42,7 +42,6 @@
     ?>
 
     <div class="main">
-        <div id="stories-left">
         <article id="content" class="story">
             <header class="story__hd">
                 <?php echo $kicker ?>
@@ -56,6 +55,7 @@
             <?php
             }
             ?>
+            <div id="stories-left">
             <div class="story__meta">
                 <p class="byline">By <strong><?php echo $author_name ?></strong></p>
                 <p class="dateline"><i><?php echo $story_location?>,</i> <?php echo $date; ?> </p>
@@ -64,10 +64,8 @@
             <div class="story__bd">
                 <?php the_content(); ?>
             </div>
-            
-        </article>
-        </div>
-        <div id="stories-right">
+            </div>
+            <div id="stories-right">
         <section class="sc-container" id="recent">
             <h2 class="alt">NewsStream</h2>
             <div class="sc-slice size-xs">
@@ -108,6 +106,7 @@
             </div>
         </section>
     </div>
+        </article>
         <section class="sc-container">
 
                 <h2>Related</h2>
