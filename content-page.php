@@ -43,7 +43,6 @@ if ($pub_name != '' and $source_link != '') {
 <script type="text/javascript">jeo({"postID":<?php echo $map_id; ?>,"count":0});</script>
 <div class="main">
     <a name="content"></a>
-    <div id="stories-left">
     <div class="section-list">
 
         <header class="section-header">
@@ -141,7 +140,6 @@ if ($pub_name != '' and $source_link != '') {
             <?php } ?>
         </div>
 
-    </div>
     </div>
     <div id="stories-right">
         <section class="sc-container" id="recent">
