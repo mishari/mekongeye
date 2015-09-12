@@ -34,13 +34,7 @@
 
 		<div class="footer-subscribe">
 			<h6>Subscribe for email updates</h6>
-			<form class="email-signup">
-				<label for="email-signup__name" class="hidden-label">Name</label>
-				<input type="email" value="" name="EMAIL" class="email" id="email-signup__name" placeholder="name" required="">
-				<label for="email-signup__mail" class="hidden-label">Email Address</label>
-				<input type="email" value="" name="EMAIL" class="email" id="email-signup__mail" placeholder="email address" required="">
-				<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button ss-icon">
-			</form>
+			<?php dynamic_sidebar( 'subscriber_widgets' ); ?>
 		</div>
 
 		<div class="footer-sponsors">
