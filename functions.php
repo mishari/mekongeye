@@ -569,4 +569,19 @@ function remove_category_box() {
 
 add_action( 'admin_init', 'remove_category_box' );
 
+function subscriber_widgets() {
+
+	register_sidebar( array(
+		'name'          => 'Subscriber Widget',
+		'id'            => 'subscriber_widgets',
+		'before_widget' => null,
+		'after_widget'  => null',
+		'before_title'  => null,
+		'after_title'   => null,
+	) );
+
+}
+add_action( 'widgets_init', 'subscriber_widgets' );
+?>
+
 ?>
