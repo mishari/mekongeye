@@ -289,7 +289,6 @@ $arg_medium = array(
         </section>
     </div>
     <div id="stories-right">
-        <h2 class="alt-group">Mekong Eye <br> News Digest</h2>
         <section class="sc-container" id="recent">
             <h2 class="alt">NewsStream</h2>
             <div class="sc-slice size-xs">
