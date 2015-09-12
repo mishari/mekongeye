@@ -28,8 +28,8 @@
 
 		<div class="footer-social">
 			<h6>Follow us on social media</h6>
-			<a href="https://twitter.com/MekongEye"><img src="<?php bloginfo('stylesheet_directory');?>/images/twitter-icon.png" alt="twitter"></a>
-			<a href="https://www.facebook.com/MekongEye"><img src="<?php bloginfo('stylesheet_directory');?>/images/facebook-icon.png" alt="facebook"></a>
+			<a href="https://twitter.com/MekongEye"><img class="social" src="<?php bloginfo('stylesheet_directory');?>/images/twitter-icon.png" alt="twitter"></a>
+			<a href="https://www.facebook.com/MekongEye"><img class="social" src="<?php bloginfo('stylesheet_directory');?>/images/facebook-icon.png" alt="facebook"></a>
 		</div>
 
 		<div class="footer-subscribe">
