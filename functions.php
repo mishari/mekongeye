@@ -583,5 +583,3 @@ function subscriber_widgets() {
 }
 add_action( 'widgets_init', 'subscriber_widgets' );
 ?>
-
-?>
