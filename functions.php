@@ -575,7 +575,7 @@ function subscriber_widgets() {
 		'name'          => 'Subscriber Widget',
 		'id'            => 'subscriber_widgets',
 		'before_widget' => null,
-		'after_widget'  => null',
+		'after_widget'  => null,
 		'before_title'  => null,
 		'after_title'   => null,
 	) );
