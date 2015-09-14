@@ -40,7 +40,13 @@ $arg_medium = array(
                     <a href="<?php echo post_permalink($post->ID) ?>">
                         <div class="sc-story__bd">
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                            <?php
+                            $date = get_post_meta( $post->ID, 'date', true);
+                            if ($date == '') {
+                                $date = get_the_date( 'j M Y', $post->ID );
+                            }
+                            ?>
+                            <p class="dateline"><?php echo $date; ?></p>
                         </div>
                     </a>
                 </article>
