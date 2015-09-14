@@ -3,6 +3,7 @@
 <?php if(have_posts()) : the_post(); ?>
     <?php 
     set_posts_views($id);
+    $sub_title   = get_post_meta( $id, 'sub_title', true );
     $pub_name   = get_post_meta( $id, 'pub_name' , true );
     $source_link   = get_post_meta( $id, 'source_link', true );
     if ($pub_name != '' and $source_link != '') {
@@ -46,6 +47,7 @@
             <header class="story__hd">
                 <?php echo $kicker ?>
                 <h1><?php the_title(); ?></h1>
+                <h2><?php echo $sub_title; ?></h2>
             </header>
             <?php
             if ( has_post_thumbnail() ) {?>
