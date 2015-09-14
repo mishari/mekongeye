@@ -55,9 +55,9 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                 	$author_name = get_post_meta( $post->ID, 'author_name', true );
                 ?>
                     <article class="sc-story">
-                        <?php 
-                        if ($post->post_type == 'link') {
-                            $link = get_post_meta($post->ID, 'link_target', true);
+                        <?php
+                        $link = get_post_meta($post->ID, 'link_target', true);
+                        if ($link != '') {
                             echo '<a href="' . $link .'">';
                         }
                         else {
@@ -95,8 +95,8 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                 ?>
                     <div class="sv-story__hd">
                         <?php
-                        if ($post->post_type == 'link') {
-                            $link = get_post_meta($post->ID, 'link_target', true);
+                        $link = get_post_meta($post->ID, 'link_target', true);
+                        if ($link != '') {
                             echo '<a href="' . $link .'">';
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
@@ -121,8 +121,8 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                     ?>
                     
                     <h2><?php
-                        if ($post->post_type == 'link') {
-                            $link = get_post_meta($post->ID, 'link_target', true);
+                        $link = get_post_meta($post->ID, 'link_target', true);
+                        if ($link != '') {
                             echo '<a href="' . $link .'">';
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
@@ -161,8 +161,8 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                     ?>
                     <p class="more">
                         <?php
-                        if ($post->post_type == 'link') {
-                            $link = get_post_meta($post->ID, 'link_target', true);
+                        $link = get_post_meta($post->ID, 'link_target', true);
+                        if ($link != '') {
                             echo '<a href="' . $link .'">';
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
