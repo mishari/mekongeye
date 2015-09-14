@@ -600,4 +600,12 @@ function subscriber_widgets() {
 
 }
 add_action( 'widgets_init', 'subscriber_widgets' );
+
+function enqueue_script_for_post_type() {
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('thickbox');
+    wp_enqueue_style('thickbox');
+    wp_enqueue_script('media-upload');
+}
+ add_action( 'admin_enqueue_scripts', 'enqueue_script_for_post_type' );
 ?>
