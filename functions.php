@@ -436,9 +436,9 @@ function shortcode_posts( $atts ) {
                 $html .= '<article class="sc-story">';
             }
             
-            if ($post->post_type == 'link') {
-                $link = get_post_meta($post->ID, 'link_target', true);
-                $html .= '<a href="' . $link .'">';
+            $link = get_post_meta($post->ID, 'link_target', true);
+            if ($link != '') {
+                echo '<a href="' . $link .'" target="_blank">';
             }
             else {
                 $html .= '<a href="' . post_permalink($post->ID) .'">';
