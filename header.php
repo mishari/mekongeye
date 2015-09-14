@@ -52,6 +52,7 @@
 					wp_nav_menu( $defaults );
 				?>
 			</nav>
+			<?php get_search_form( false ); ?>
 		</div>
 	</header>
 	<script>
