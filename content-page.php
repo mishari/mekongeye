@@ -58,8 +58,8 @@ if ($pub_name != '' and $source_link != '') {
                 ?>
                     <div class="sv-story__hd">
                         <?php
-                        if ($post->post_type == 'link') {
-                            $link = get_post_meta($post->ID, 'link_target', true);
+                        $link = get_post_meta($post->ID, 'link_target', true);
+                        if ($link != '') {
                             echo '<a href="' . $link .'" target="_blank">';
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
@@ -85,8 +85,8 @@ if ($pub_name != '' and $source_link != '') {
                     
                     <h2>
                         <?php
-                        if ($post->post_type == 'link') {
-                            $link = get_post_meta($post->ID, 'link_target', true);
+                        $link = get_post_meta($post->ID, 'link_target', true);
+                        if ($link != '') {
                             echo '<a href="' . $link .'" target="_blank">';
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
@@ -125,8 +125,9 @@ if ($pub_name != '' and $source_link != '') {
                     ?>
                     <p class="more">
                         <?php
-                        if ($post->post_type == 'link') {
-                            $link = get_post_meta($post->ID, 'link_target', true);
+                        
+                        $link = get_post_meta($post->ID, 'link_target', true);
+                        if ($link != '') {
                             echo '<a href="' . $link .'" target="_blank">';
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
