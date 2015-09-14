@@ -215,5 +215,4 @@ function save_sequence_settings ( $post_id ) {
 add_action( 'admin_enqueue_scripts', 'custom_enqueue_script' );
 add_action( 'admin_init', 'sequence_settings' );
 add_action('save_post', 'save_sequence_settings' );
-add_action( 'init', 'revcon_change_post_object' );
 add_action( 'init', 'register_sequence_post_type' );
