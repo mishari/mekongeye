@@ -176,6 +176,7 @@ add_action( 'save_post', 'save_editor_pick' );
 
 function content_settings_box() {
     global $post;
+    $sub_title = get_post_meta( $post->ID, 'sub_title', true);
     $pub_name = get_post_meta( $post->ID, 'pub_name', true);
     $source_link = get_post_meta( $post->ID, 'source_link', true);
     $author_name = get_post_meta( $post->ID, 'author_name', true);
@@ -187,6 +188,12 @@ function content_settings_box() {
     <div id="content_settings_box">
         <div class="metabox-tabs-div">
             <div id="genetal-tab" class="genetal-tab">
+            	<div class="type-title">
+                    <h4>Sub Title</h4>
+                </div>
+                <div class="settings">
+                    <input type="text" size="100" name="sub_title" id="sub_title" value="<?php echo $sub_title ?>">
+                </div>
                 <div class="type-title">
                     <h4>Publication Name</h4>
                 </div>
@@ -258,6 +265,7 @@ function save_content_settings ( $post_id ) {
         return $post_id;
     }
 
+    $sub_title = $_POST['sub_title'];
     $pub_name = $_POST['pub_name'];
     $source_link = $_POST['source_link'];
     $author_name = $_POST['author_name'];
@@ -265,6 +273,7 @@ function save_content_settings ( $post_id ) {
     $custom_link_text = $_POST['custom_link_text'];
     $link_target = $_POST['link_target'];
 
+    update_post_meta($post_id, 'sub_title', $sub_title);
     update_post_meta($post_id, 'pub_name', $pub_name);
     update_post_meta($post_id, 'source_link', $source_link);
     update_post_meta($post_id, 'author_name', $author_name);
