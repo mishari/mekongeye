@@ -307,8 +307,8 @@ $arg_medium = array(
             ?>
                 <article class="sc-story">
                     <?php 
-                    if ($post->post_type == 'link') {
-                        $link = get_post_meta($post->ID, 'link_target', true);
+                    $link = get_post_meta($post->ID, 'link_target', true);
+                    if ($link != '') {
                         echo '<a href="' . $link .'">';
                     }
                     else {
@@ -348,8 +348,8 @@ $arg_medium = array(
             ?>
                 <article class="sc-story">
                     <?php 
-                    if ($post->post_type == 'link') {
-                        $link = get_post_meta($post->ID, 'link_target', true);
+                    $link = get_post_meta($post->ID, 'link_target', true);
+                    if ($link != '') {
                         echo '<a href="' . $link .'">';
                     }
                     else {
@@ -390,8 +390,8 @@ $arg_medium = array(
             ?>
                 <article class="sc-story">
                     <?php 
-                    if ($post->post_type == 'link') {
-                        $link = get_post_meta($post->ID, 'link_target', true);
+                    $link = get_post_meta($post->ID, 'link_target', true);
+                    if ($link != '') {
                         echo '<a href="' . $link .'">';
                     }
                     else {
@@ -441,8 +441,8 @@ $arg_medium = array(
             ?>
                 <article class="sc-story">
                     <?php 
-                    if ($post->post_type == 'link') {
-                        $link = get_post_meta($post->ID, 'link_target', true);
+                    $link = get_post_meta($post->ID, 'link_target', true);
+                    if ($link != '') {
                         echo '<a href="' . $link .'">';
                     }
                     else {
