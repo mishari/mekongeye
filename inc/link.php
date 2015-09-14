@@ -108,5 +108,4 @@ function save_link_settings ( $post_id ) {
 /* Add action to wp function */
 add_action( 'admin_init', 'link_settings' );
 add_action('save_post', 'save_link_settings' );
-add_action( 'init', 'revcon_change_post_object' );
 add_action( 'init', 'register_link_post_type' );
