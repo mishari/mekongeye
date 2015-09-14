@@ -81,9 +81,13 @@ $arg_medium = array(
                             if ($kicker[0] != '') {
                                 echo '<p class="kicker">' . $kicker[0] . '</p>';
                             }
+                            $date = get_post_meta( $post->ID, 'date', true);
+                            if ($date == '') {
+                                $date = get_the_date( 'j M Y', $post->ID );
+                            }
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                            <p class="dateline"><?php echo $date; ?></p>
                         </div>
                     </a>
                 </article>
@@ -120,9 +124,13 @@ $arg_medium = array(
                             if ($kicker[0] != '') {
                                 echo '<p class="kicker">' . $kicker[0] . '</p>';
                             }
+                            $date = get_post_meta( $post->ID, 'date', true);
+                            if ($date == '') {
+                                $date = get_the_date( 'j M Y', $post->ID );
+                            }
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                            <p class="dateline"><?php echo $date; ?></p>
                         </div>
                     </a>
                 </article>
@@ -161,9 +169,13 @@ $arg_medium = array(
                             if ($kicker[0] != '') {
                                 echo '<p class="kicker">' . $kicker[0] . '</p>';
                             }
+                            $date = get_post_meta( $post->ID, 'date', true);
+                            if ($date == '') {
+                                $date = get_the_date( 'j M Y', $post->ID );
+                            }
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                            <p class="dateline"><?php echo $date; ?></p>
                         </div>
                     </a>
                 </article>
@@ -200,9 +212,13 @@ $arg_medium = array(
                             if ($kicker[0] != '') {
                                 echo '<p class="kicker">' . $kicker[0] . '</p>';
                             }
+                            $date = get_post_meta( $post->ID, 'date', true);
+                            if ($date == '') {
+                                $date = get_the_date( 'j M Y', $post->ID );
+                            }
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                            <p class="dateline"><?php echo $date; ?></p>
                         </div>
                     </a>
                 </article>
@@ -240,9 +256,13 @@ $arg_medium = array(
                             if ($kicker[0] != '') {
                                 echo '<p class="kicker">' . $kicker[0] . '</p>';
                             }
+                            $date = get_post_meta( $post->ID, 'date', true);
+                            if ($date == '') {
+                                $date = get_the_date( 'j M Y', $post->ID );
+                            }
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                            <p class="dateline"><?php echo $date; ?></p>
                         </div>
                     </a>
                 </article>
@@ -278,9 +298,13 @@ $arg_medium = array(
                             if ($kicker[0] != '') {
                                 echo '<p class="kicker">' . $kicker[0] . '</p>';
                             }
+                            $date = get_post_meta( $post->ID, 'date', true);
+                            if ($date == '') {
+                                $date = get_the_date( 'j M Y', $post->ID );
+                            }
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo get_the_date( 'j M Y', $post->ID ); ?></p>
+                            <p class="dateline"><?php echo $date; ?></p>
                         </div>
                     </a>
                 </article>
