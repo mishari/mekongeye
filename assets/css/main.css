@@ -131,7 +131,15 @@ sub {
  * Remove border when inside `a` element in IE 8/9/10.
  */
 img {
-  border: 0; }
+  border: 0; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+ 
+img.social {
+  display: inherit;
+}
 
 /**
  * Correct overflow not hidden in IE 9/10/11.
@@ -1624,6 +1632,11 @@ img {
       width: 100%; }
       #stories-left:last-child {
         margin-right: 0; } }
+
+.map-vertical>#stories-right {
+  width: 47.40426%;
+  float: right;
+}
 
 #stories-right {
   float: left;
