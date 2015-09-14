@@ -38,55 +38,7 @@
                 </div>
             </article>
 
-            <section class="sc-container">
-                <h2>Related</h2>
-                <div class="sc-slice size-md">
-                    <article class="sc-story option-image">
-                        <a href="#">
-                            <div class="sc-story__hd">
-                                <img src="/static/images/preview-64x64px.jpg" alt="story preview">
-                            </div>
-                            <div class="sc-story__bd">
-                                <p class="kicker">Eye Original</p>
-                                <h4>Small story hed goes here spot for story</h4>
-                                <p class="dateline">25 May 2015</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="sc-story ">
-                        <a href="#">
-                            <div class="sc-story__bd">
-                                <h4>If there is no image, show only the text headine for the story</h4>
-                                <p class="dateline">25 May 2015</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="sc-story option-image">
-                        <a href="#">
-                            <div class="sc-story__hd">
-                                <img src="/static/images/preview-64x64px.jpg" alt="story preview">
-                            </div>
-                            <div class="sc-story__bd">
-                                <h4>Small story hed goes here spot for story</h4>
-                                <p class="dateline">25 May 2015</p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="sc-story ">
-                        <a href="#">
-                            <div class="sc-story__bd">
-                                <h4>If there is no image, show only the text headine for the story</h4>
-                                <p class="dateline">25 May 2015</p>
-                            </div>
-                        </a>
-                    </article>
-
-                </div>
-                <!-- / slice -->
-            </section>
+            <?php related_posts(); ?>
         </div>
     </div>
 
