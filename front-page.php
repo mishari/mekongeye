@@ -309,7 +309,7 @@ $arg_medium = array(
                     <?php 
                     $link = get_post_meta($post->ID, 'link_target', true);
                     if ($link != '') {
-                        echo '<a href="' . $link .'">';
+                        echo '<a href="' . $link .'" target="_blank">';
                     }
                     else {
                         echo '<a href="' . post_permalink($post->ID) .'">';
@@ -350,7 +350,7 @@ $arg_medium = array(
                     <?php 
                     $link = get_post_meta($post->ID, 'link_target', true);
                     if ($link != '') {
-                        echo '<a href="' . $link .'">';
+                        echo '<a href="' . $link .'" target="_blank">';
                     }
                     else {
                         echo '<a href="' . post_permalink($post->ID) .'">';
@@ -392,7 +392,7 @@ $arg_medium = array(
                     <?php 
                     $link = get_post_meta($post->ID, 'link_target', true);
                     if ($link != '') {
-                        echo '<a href="' . $link .'">';
+                        echo '<a href="' . $link .'" target="_blank">';
                     }
                     else {
                         echo '<a href="' . post_permalink($post->ID) .'">';
@@ -443,7 +443,7 @@ $arg_medium = array(
                     <?php 
                     $link = get_post_meta($post->ID, 'link_target', true);
                     if ($link != '') {
-                        echo '<a href="' . $link .'">';
+                        echo '<a href="' . $link .'" target="_blank">';
                     }
                     else {
                         echo '<a href="' . post_permalink($post->ID) .'">';
