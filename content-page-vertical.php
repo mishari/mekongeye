@@ -58,7 +58,7 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                         <?php
                         $link = get_post_meta($post->ID, 'link_target', true);
                         if ($link != '') {
-                            echo '<a href="' . $link .'">';
+                            echo '<a href="' . $link .'" target="_blank">';
                         }
                         else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
@@ -99,7 +99,7 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                         <?php 
                         $link = get_post_meta($post->ID, 'link_target', true);
                         if ($link != '') {
-                            echo '<a href="' . $link .'">';
+                            echo '<a href="' . $link .'" target="_blank">';
                         }
                         else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
@@ -138,7 +138,7 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                         <?php
                         $link = get_post_meta($post->ID, 'link_target', true);
                         if ($link != '') {
-                            echo '<a href="' . $link .'">';
+                            echo '<a href="' . $link .'" target="_blank">';
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
                         }
@@ -164,7 +164,7 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                     <h2><?php
                         $link = get_post_meta($post->ID, 'link_target', true);
                         if ($link != '') {
-                            echo '<a href="' . $link .'">';
+                            echo '<a href="' . $link .'" target="_blank">';
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
                         }
@@ -204,7 +204,7 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
                         <?php
                         $link = get_post_meta($post->ID, 'link_target', true);
                         if ($link != '') {
-                            echo '<a href="' . $link .'">';
+                            echo '<a href="' . $link .'" target="_blank">';
                         } else {
                             echo '<a href="' . post_permalink($post->ID) .'">';
                         }
