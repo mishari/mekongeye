@@ -62,7 +62,7 @@
 					wp_nav_menu( $defaults );
 				?>
 			</nav>
-			<?php get_search_form( false ); ?>
+			<?php get_search_form(); ?>
 		</div>
 	</header>
 	<script>
