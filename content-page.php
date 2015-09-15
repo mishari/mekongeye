@@ -46,7 +46,7 @@ if ($map_type == 'map') {
 <?php 
 } 
 else {
-    $map_shortcode = '[map_group id="' . $map_id . '"]'
+    $map_shortcode = '[map_group id="' . $map_id . '"]';
     echo do_shortcode($map_shortcode);
 ?>
 <script>
