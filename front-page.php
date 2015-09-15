@@ -49,6 +49,14 @@ $arg_medium = array(
     <?php while ( have_posts() ) : the_post(); ?>
         <?php the_content(); ?>
     <?php endwhile; ?>
+    	<script>
+    	$('#map-group li a').click(function() {
+			var tab_id = $(this).attr('aria-controls');
+			var element = 'div#' + tab_id + ' article div.sc-story__hd div';
+			var html = '<div class="map-container clearfix map-fill map-tall"><div id="map_' + tab_id + '_0"></div></div><script type="text/javascript">jeo({"postID":' + tab_id + ',"count":0});\</script>';
+			$(element).html(html);
+		});
+    	</script>
         <section class="sc-container">
             <h2><a href="#">Opinion &amp; Blogs <b>»</b></a></h2>
             <div class="sc-slice size-md format-3col">
