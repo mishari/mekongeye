@@ -447,7 +447,7 @@ function shortcode_posts( $atts ) {
             
             $link = get_post_meta($post->ID, 'link_target', true);
             if ($link != '') {
-                echo '<a href="' . $link .'" target="_blank">';
+                $html .= '<a href="' . $link .'" target="_blank">';
             }
             else {
                 $html .= '<a href="' . post_permalink($post->ID) .'">';
@@ -601,12 +601,4 @@ function subscriber_widgets() {
 
 }
 add_action( 'widgets_init', 'subscriber_widgets' );
-
-function enqueue_script_for_post_type() {
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('thickbox');
-    wp_enqueue_style('thickbox');
-    wp_enqueue_script('media-upload');
-}
- add_action( 'admin_enqueue_scripts', 'enqueue_script_for_post_type' );
 ?>
