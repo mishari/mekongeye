@@ -314,7 +314,7 @@ $arg_medium = array(
     </div>
     <div id="stories-right">
         <section class="sc-container" id="recent">
-            <h2 class="alt">NewsStream</h2>
+            <h2 class="alt">News Stream</h2>
             <div class="sc-slice size-xs">
             <?php 
             $args = array(
