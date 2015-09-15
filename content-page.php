@@ -36,11 +36,31 @@ if ($pub_name != '' and $source_link != '') {
 } else {
     $pub_name = '';
 }
+$map_type = get_post_type( $map_id );
+if ($map_type == 'map') {
 ?>
 <div class="map-container clearfix map-fill map-tall">
     <div id="map_<?php echo $map_id; ?>_0"></div>
 </div>
 <script type="text/javascript">jeo({"postID":<?php echo $map_id; ?>,"count":0});</script>
+<?php 
+} 
+else {
+    $map_shortcode = '[map_group id="' . $map_id . '"]'
+    echo do_shortcode($map_shortcode);
+?>
+<script>
+$('#map-group li a').click(function() {
+    var tab_id = $(this).attr('aria-controls');
+    var element = 'div#' + tab_id + ' article div.sc-story__hd div';
+    var script = ''
+    var html = '<div class="map-container clearfix map-fill map-tall"><div id="map_' + tab_id + '_0"></div></div><script type="text/javascript">jeo({"postID":' + tab_id + ',"count":0});';
+    $(element).html(html);
+});
+</script>
+<?php
+}
+?>
 <div class="main">
     <a name="content"></a>
     <div class="section-list">
