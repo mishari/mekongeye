@@ -568,7 +568,7 @@ function shortcode_map_group( $atts ) {
     $html .= '$("#map-group li a").click(function() {';
     $html .= 'var tab_id = $(this).attr("aria-controls");';
     $html .= 'var element = "div#" + tab_id + " article div.sc-story__hd div";';
-    $html .= 'var html = \'<div class="map-container clearfix map-fill map-tall"><div id="map_\' + tab_id + \'_0"></div></div><script type="text/javascript">jeo({"postID":\' + tab_id + \',"count":0});</script>;';
+    $html .= 'var html = \'<div class="map-container clearfix map-fill map-tall"><div id="map_\' + tab_id + \'_0"></div></div><script type="text/javascript">jeo({"postID":\' + tab_id + \',"count":0});</script>';
     $html .= '$(element).html(html);';
     $html .= '})';
     $html .= '</script>';
