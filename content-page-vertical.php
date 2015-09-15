@@ -39,7 +39,7 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
         <script type="text/javascript">jeo({"postID":<?php echo $map_id; ?>,"count":0});</script>
         <div id="stories-right">
             <section class="sc-container" id="recent">
-                <h2 class="alt">NewsStream</h2>
+                <h2 class="alt">News Stream</h2>
                 <div class="sc-slice size-xs">
                 <?php 
                 $args = array(
