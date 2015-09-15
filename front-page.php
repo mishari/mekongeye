@@ -94,9 +94,10 @@ $arg_medium = array(
                             if ($date == '') {
                                 $date = get_the_date( 'j M Y', $post->ID );
                             }
+                            $pub_name = get_post_meta( $post->ID, 'pub_name', true);
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo $date; ?></p>
+                            <p class="dateline"><?php echo $pub_name; ?></p>
                         </div>
                     </a>
                 </article>
@@ -137,9 +138,10 @@ $arg_medium = array(
                             if ($date == '') {
                                 $date = get_the_date( 'j M Y', $post->ID );
                             }
+                            $pub_name = get_post_meta( $post->ID, 'pub_name', true);
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo $date; ?></p>
+                            <p class="dateline"><?php echo $pub_name; ?></p>
                         </div>
                     </a>
                 </article>
@@ -182,9 +184,10 @@ $arg_medium = array(
                             if ($date == '') {
                                 $date = get_the_date( 'j M Y', $post->ID );
                             }
+                            $pub_name = get_post_meta( $post->ID, 'pub_name', true);
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo $date; ?></p>
+                            <p class="dateline"><?php echo $pub_name; ?></p>
                         </div>
                     </a>
                 </article>
@@ -225,9 +228,10 @@ $arg_medium = array(
                             if ($date == '') {
                                 $date = get_the_date( 'j M Y', $post->ID );
                             }
+                            $pub_name = get_post_meta( $post->ID, 'pub_name', true);
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo $date; ?></p>
+                            <p class="dateline"><?php echo $pub_name; ?></p>
                         </div>
                     </a>
                 </article>
@@ -269,9 +273,10 @@ $arg_medium = array(
                             if ($date == '') {
                                 $date = get_the_date( 'j M Y', $post->ID );
                             }
+                            $pub_name = get_post_meta( $post->ID, 'pub_name', true);
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo $date; ?></p>
+                            <p class="dateline"><?php echo $pub_name; ?></p>
                         </div>
                     </a>
                 </article>
@@ -311,9 +316,10 @@ $arg_medium = array(
                             if ($date == '') {
                                 $date = get_the_date( 'j M Y', $post->ID );
                             }
+                            $pub_name = get_post_meta( $post->ID, 'pub_name', true);
                             ?>
                             <h4><?php echo $post->post_title; ?></h4>
-                            <p class="dateline"><?php echo $date; ?></p>
+                            <p class="dateline"><?php echo $pub_name; ?></p>
                         </div>
                     </a>
                 </article>
