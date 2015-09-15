@@ -59,7 +59,7 @@ $arg_medium = array(
 		});
     	</script>
         <section class="sc-container">
-            <h2><a href="#">Opinion &amp; Blogs <b>»</b></a></h2>
+            <h2><a href="http://mekongeye.com/opinion-blogs/">Opinion &amp; Blogs <b>»</b></a></h2>
             <div class="sc-slice size-md format-3col">
                 <?php
                 $args = array(
@@ -149,7 +149,7 @@ $arg_medium = array(
             </div>
         </section>
         <section class="sc-container">
-            <h2><a href="#">Eye Originals <b>»</b></a></h2>
+            <h2><a href="http://mekongeye.com/eye-originals/">Eye Originals <b>»</b></a></h2>
             <div class="sc-slice size-md format-3col">
                 <?php
                 $args = array(
