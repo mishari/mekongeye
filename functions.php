@@ -545,7 +545,8 @@ function shortcode_map_group( $atts ) {
         if ($date == '') {
             $date = get_the_date( 'j M Y', $post->ID );
         }
-        $html .= '<p class="dateline">' . $date . '</p>';
+        $pub_name = get_post_meta( $post->ID, 'pub_name', true);
+        $html .= '<p class="dateline">' . $pub_name . '</p>';
         $html .= '</div>';
         $html .= '</a>';
         $html .= '</article>';
