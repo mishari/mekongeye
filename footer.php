@@ -20,9 +20,9 @@
 		<div class="footer-partners">
 			<h6>Partner Sites</h6>
 			<ul>
-				<li><a href="#">Mekong Matters Journalism Network</a></li>
-				<li><a href="#">Open Development Mekong</a></li>
-				<li><a href="#">Mekong Citizen</a></li>
+				<li><a href="https://www.facebook.com/groups/1488115371456079/?fref=ts">Mekong Matters Journalism Network</a></li>
+				<li><a href="https://opendevelopmentmekong.net/">Open Development Mekong</a></li>
+				<li><a href="http://mekongcitizen.org/">Mekong Citizen</a></li>
 			</ul>
 		</div>
 
