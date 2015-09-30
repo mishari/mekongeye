@@ -47,7 +47,7 @@
             <header class="story__hd">
                 <?php echo $kicker ?>
                 <h1><?php the_title(); ?></h1>
-                <h2><?php echo $sub_title; ?></h2>
+                <h2 class="subhead"><?php echo $sub_title; ?></h2>
             </header>
             <?php
             if ( has_post_thumbnail() ) {?>
