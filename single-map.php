@@ -3,6 +3,7 @@
 <?php if(have_posts()) : the_post(); ?>
     <?php
     set_posts_views($id);
+    $sub_title   = get_post_meta( $id, 'sub_title', true );
     $pub_name   = get_post_meta( $id, 'pub_name' , true );
     $source_link   = get_post_meta( $id, 'source_link', true );
         if ($pub_name != '') {
@@ -27,7 +28,7 @@
                 <header class="sequence__hd">
                     <?php echo $pub_name ?>
                     <h1><?php the_title(); ?></h1>
-                    <h2 class="subhead">Subhead Here Below the Main Hed</h2>
+                    <h2 class="subhead"><?php echo $sub_title ?></h2>
                 </header>
                 <div class="sequence__meta">
                     <p class="byline">By <strong><?php echo $author_name ?></strong></p>
