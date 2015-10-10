@@ -775,7 +775,7 @@ header.navigation {
       display: block; }
     @media screen and (min-width: 58.75em) {
       header.navigation ul.nav-link {
-        display: inline;
+        float: left;
         margin: 0;
         padding: 0; } }
   header.navigation ul li.nav-link {
