@@ -775,12 +775,13 @@ header.navigation {
       display: block; }
     @media screen and (min-width: 58.75em) {
       header.navigation ul.nav-link {
-        float: left;
+        display: inline;
         margin: 0;
         padding: 0; } }
   header.navigation ul li.nav-link {
     background: #fff;
     display: block;
+    float: left;
     line-height: 50px;
     overflow: hidden;
     padding-right: 0.8em;
