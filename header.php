@@ -70,3 +70,18 @@
 	$('ul#menu-header-menu>li:nth-child(3)').addClass('more');
 	$('ul#menu-header-menu>li:nth-child(4)').addClass('more');
 	</script>
+	<script>
+	$(document).ready(function() {
+	    var menuToggle = $('#js-mobile-menu').unbind();
+	    $('#menu-header-menu').removeClass("show");
+
+	    menuToggle.on('click', function(e) {
+	        e.preventDefault();
+	        $('#menu-header-menu').slideToggle(function(){
+	            if($('#menu-header-menu').is(':hidden')) {
+	                $('#menu-header-menu').removeAttr('style');
+	            }
+	        });
+	     });
+	});
+	</script>
