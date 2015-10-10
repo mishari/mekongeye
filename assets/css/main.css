@@ -762,7 +762,7 @@ header.navigation {
     @media screen and (min-width: 58.75em) {
       header.navigation nav {
         float: left; } }
-  header.navigation ul.navigation-link {
+  header.navigation ul.nav-link {
     -webkit-transform-style: preserve-3d;
     clear: both;
     display: none;
