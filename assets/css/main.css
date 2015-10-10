@@ -282,6 +282,12 @@ input[type="search"] {
     right: 0px;
 }
 
+@media screen and (max-width: 58.75em)
+#searchform {
+    right: 80px;
+    z-index: -100;
+}
+
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
  * Safari (but not Chrome) clips the cancel button when the search input has
