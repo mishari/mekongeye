@@ -755,7 +755,7 @@ header.navigation {
     @media screen and (min-width: 58.75em) {
       header.navigation nav {
         float: left; } }
-  header.navigation ul.navigation-menu {
+  header.navigation ul.nav-link {
     -webkit-transform-style: preserve-3d;
     clear: both;
     display: none;
@@ -764,10 +764,10 @@ header.navigation {
     padding: 0;
     width: 100%;
     z-index: 9999; }
-    header.navigation ul.navigation-menu.show {
+    header.navigation ul.nav-link.show {
       display: block; }
     @media screen and (min-width: 58.75em) {
-      header.navigation ul.navigation-menu {
+      header.navigation ul.nav-link {
         display: inline;
         margin: 0;
         padding: 0; } }
