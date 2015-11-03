@@ -16,8 +16,6 @@
                 get_template_part( 'content', 'search' );
             endwhile;
             wp_reset_query();
-
-            pagination();
         else:
             get_template_part( 'no-results', 'search' );
         endif;
