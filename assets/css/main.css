@@ -282,6 +282,10 @@ input[type="search"] {
     right: 0px;
 }
 
+li.post-list-item {
+  list-style: none;
+}
+
 @media only screen and (max-width: 58.75em) {
     #searchform {
         right: 80px;
