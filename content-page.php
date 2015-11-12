@@ -29,7 +29,7 @@ $args = array(
     'topic'            => $topic_name,
     'pub_type'         => $pub_type_name
 );
-$posts = get_posts( $args );
+$query = new WP_Query( $args );
 $map_id = get_post_meta( $post->ID, 'map_id', true);
 $pub_name   = get_post_meta( $id, 'pub_name' , true );
 $source_link   = get_post_meta( $id, 'source_link', true );
@@ -73,7 +73,7 @@ $('#map-group li a').click(function() {
         </header>
 
         <div class="sv-slice">
-            <?php foreach ( $posts as $post ) { ?>
+            <?php foreach ( $query->posts as $post ) { ?>
             <article class="sv-story">
                 <?php 
                 if (has_post_thumbnail($post->ID)) {
@@ -163,10 +163,11 @@ $('#map-group li a').click(function() {
             <?php } ?>
         </div>
         <?php
-        the_posts_pagination( array(
-        	'mid_size'  => 2,
-        	'prev_text' => __( 'Back', 'textdomain' ),
-        	'next_text' => __( 'Onward', 'textdomain' ),
+            echo paginate_links( array(
+                'base' => '%_%',
+                'format' => '?paged=%#%',
+                'current' => max( 1, get_query_var('paged') ),
+                'total' => $query->max_num_pages
         ) );
         ?>
 
