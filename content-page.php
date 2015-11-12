@@ -160,6 +160,12 @@ $('#map-group li a').click(function() {
             </article>
             <?php } ?>
         </div>
+        <div class="additional">
+            <ul class="pager">
+                <?php previous_post_link( '<li class="previous">%link</li>', '&larr; Older' ); ?>
+                <?php next_post_link( '<li class="next">%link</li>','Next &rarr;' ); ?>
+            </ul>
+        </div>
 
     </div>
     <div id="stories-right">
