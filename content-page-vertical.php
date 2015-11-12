@@ -27,7 +27,7 @@ $args = array(
     'topic'            => $topic_name,
     'pub_type'         => $pub_type_name
 );
-$posts = get_posts( $args );
+$query = new WP_Query( $args );
 $map_id = get_post_meta( $post->ID, 'map_id', true);
 ?>
 <div class="main">
@@ -129,7 +129,7 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
         </header>
 
         <div class="sv-slice">
-            <?php foreach ( $posts as $post ) { ?>
+            <?php foreach ( $query->posts as $post ) { ?>
             <article class="sv-story">
                 <?php 
                 if (has_post_thumbnail($post->ID)) {
@@ -216,7 +216,14 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
             </article>
             <?php } ?>
         </div>
-
+        <?php
+            echo paginate_links( array(
+                'base' => '%_%',
+                'format' => '?paged=%#%',
+                'current' => max( 1, get_query_var('paged') ),
+                'total' => $query->max_num_pages
+        ) );
+        ?>
     </div>
 
 </div>
