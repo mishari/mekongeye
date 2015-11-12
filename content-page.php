@@ -162,12 +162,13 @@ $('#map-group li a').click(function() {
             </article>
             <?php } ?>
         </div>
-        <div class="additional">
-            <ul class="pager">
-                <?php previous_post_link( '<li class="previous">%link</li>', '&larr; Older' ); ?>
-                <?php next_post_link( '<li class="next">%link</li>','Next &rarr;' ); ?>
-            </ul>
-        </div>
+        <?php
+        the_posts_pagination( array(
+            'prev_text'          => __( 'Previous page', 'mekong_eye' ),
+            'next_text'          => __( 'Next page', 'mekong_eye' ),
+            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'mekong_eye' ) . ' </span>',
+        ) );
+        ?>
 
     </div>
     <div id="stories-right">
