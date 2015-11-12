@@ -378,7 +378,7 @@ $arg_medium = array(
                 'order'            => 'DESC',
                 'post_type'        => array('post', 'link', 'sequence', 'map'),
                 'post_status'      => 'publish',
-                'pub_type'         => 'Kicker, Eye Original, Opinion',
+                'pub_type'         => 'Resource / PR',
                 'suppress_filters' => true
             );
             $posts = get_posts( $args );
