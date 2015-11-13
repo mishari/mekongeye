@@ -51,7 +51,9 @@
     ?>
     <div class="container">
         <?php if ($video_source != '') {
+            echo '<div class="videoWrapper">';
             echo '<iframe width="1080" height="460" src="' . $video_source . '" frameborder="0" allowfullscreen></iframe>';
+            echo '</div>';
         } else { ?>
         <div id="sequence-image">
             <div id="sequence-carousel" class="carousel slide" data-ride="carousel">
