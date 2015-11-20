@@ -10,10 +10,9 @@
 
 		<nav class="footer-utility">
 			<ul>
-				<li><a href="#">Contact Us</a></li>
-				<li><a href="#">Submit Content</a></li>
-				<li><a href="#">For Journalists</a></li>
-				<li><a href="#">Terms of Use</a></li>
+				<li><a href="/contact-us/">Contact Us</a></li>
+				<li><a href="/for-journalists/">For Journalists</a></li>
+				<li><a href="/terms-of-use/">Terms of Use</a></li>
 			</ul>
 		</nav>
 
