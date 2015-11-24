@@ -22,7 +22,7 @@ $args = array(
     'offset'           => 0,
     'orderby'          => 'post_date',
     'order'            => 'DESC',
-    'post_type'        => array('post', 'link', 'sequence', 'map'),
+    'post_type'        => array('post', 'link', 'sequence'),
     'post_status'      => 'publish',
     'suppress_filters' => true,
     'region'           => $region_name,
@@ -181,7 +181,7 @@ $('#map-group li a').click(function() {
                     'posts_per_page'   => 10,
                     'orderby'          => 'post_date',
                     'order'            => 'DESC',
-                    'post_type'        => array('post', 'link', 'sequence', 'map'),
+                    'post_type'        => array('post', 'link', 'sequence'),
                     'post_status'      => 'publish',
                     'suppress_filters' => true
                 );
@@ -220,7 +220,7 @@ $('#map-group li a').click(function() {
                     'posts_per_page'   => 10,
                     'orderby'          => 'post_date',
                     'order'            => 'DESC',
-                    'post_type'        => array('post', 'link', 'sequence', 'map'),
+                    'post_type'        => array('post', 'link', 'sequence'),
                     'post_status'      => 'publish',
                     'meta_key'         => 'editor_pick',
                     'meta_value'       => "true",
