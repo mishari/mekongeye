@@ -2010,6 +2010,10 @@ img {
 .videoWrapper iframe {
   width: 100%;
 }
+
+p.dateline {
+  margin: 0;
+}
 @media only screen and (max-width: 58.75em) {
   .videoWrapper iframe {
     height: 240px;
