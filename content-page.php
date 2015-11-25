@@ -84,7 +84,7 @@ $('#map-group li a').click(function() {
                         if ($link != '') {
                             echo '<a href="' . $link .'" target="_blank">';
                         } else {
-                            echo '<a href="' . post_permalink($post->ID) .'">';
+                            echo '<a href="' . post_permalink($post->ID) .'" target="_blank">';
                         }
                         $thumbnail = get_the_post_thumbnail( $post->ID );
                         echo $thumbnail;
@@ -111,14 +111,10 @@ $('#map-group li a').click(function() {
                         if ($link != '') {
                             echo '<a href="' . $link .'" target="_blank">';
                         } else {
-                            echo '<a href="' . post_permalink($post->ID) .'">';
+                            echo '<a href="' . post_permalink($post->ID) .'" target="_blank">';
                         }
                         ?><?php echo $post->post_title ?></a>
                     </h2>
-                    <?php
-                    $author_name = get_post_meta( $post->ID, 'author_name', true);
-                    ?>
-                    <p class="byline">By <?php echo $author_name ?></p>
                     <?php
                         $date = get_post_meta( $post->ID, 'date', true);
                         if ($date == '') {
