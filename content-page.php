@@ -126,7 +126,7 @@ $('#map-group li a').click(function() {
                     $pub_name   = get_post_meta( $post->ID, 'pub_name' , true );
                     $source_link   = get_post_meta( $post->ID, 'source_link', true );
                     if ($pub_name != '' and $source_link != '') {
-                        $pub_name = '<a href="' . $source_link . '">' . $pub_name . '</a>';
+                        $pub_name = '<a href="' . $source_link . '" target="_blank">' . $pub_name . '</a>';
                     } else {
                         $pub_name = '';
                     }
