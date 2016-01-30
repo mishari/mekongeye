@@ -21,5 +21,13 @@
         endif;
         ?>
     </div>
+    <?php
+        echo paginate_links( array(
+            'base' => '%_%',
+            'format' => '?paged=%#%',
+            'current' => max( 1, get_query_var('paged') ),
+            'total' => $query->max_num_pages
+    ) );
+    ?>
 </div>
 <?php get_footer(); ?>
