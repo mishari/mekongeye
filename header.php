@@ -44,7 +44,7 @@
 	<div class="container">
 	<header class="global-header">
         <div class="nameplate" id="nameplate">
-            <div class="nameplate__bd"><a href="<?php echo get_site_url(); ?>">News. Maps. Perspectives. Solutions.<img class="logo" src="<?php bloginfo('stylesheet_directory');?>/images/logo-mekong.png" alt=""></a></div>
+            <div class="nameplate__bd"><a href="<?php echo get_site_url(); ?>"><img class="logo" src="<?php bloginfo('stylesheet_directory');?>/images/logo-mekong.png" alt=""></a></div>
         </div>
 	</header>
 	<header class="navigation" role="banner">
