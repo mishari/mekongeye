@@ -68,7 +68,6 @@
             </div>
             </div>
         </article>
-        <?php related_posts(); ?>
     </div>
 
 <?php endif; ?>
