@@ -199,7 +199,7 @@ $('#map-group li a').click(function() {
                                 <?php
                                 $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
                                 ?>
-                                <h4><?php echo $post->post_title; ?><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?></h4>
+                                <h4><?php echo $post->post_title; ?> <?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?></h4>
                             </div>
                         </a>
                     </article>
@@ -240,7 +240,7 @@ $('#map-group li a').click(function() {
                                 <?php
                                 $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
                                 ?>
-                                <h4><?php echo $post->post_title; ?><?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?></h4>
+                                <h4><?php echo $post->post_title; ?> <?php echo ($kicker[0] == '' ? '' : '<b class="kicker">' . $kicker[0] . '</b> ');?></h4>
                             </div>
                         </a>
                     </article>
