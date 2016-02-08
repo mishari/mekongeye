@@ -17,15 +17,15 @@
                 </a>
         </div>
         <div class="post-list-post-content">
-            <?php
-            $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
-            if ($kicker[0] != '') {
-            ?>
-                <p class="kicker"><?php echo $kicker[0]; ?></p>
-            <?php
-            }
-            ?>
             <h2>
+                <?php
+                $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
+                if ($kicker[0] != '') {
+                ?>
+                    <p class="kicker"><?php echo $kicker[0]; ?></p>
+                <?php
+                }
+                ?>
                 <?php
                 $link = get_post_meta($post->ID, 'link_target', true);
                 if ($link != '') {
