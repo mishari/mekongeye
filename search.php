@@ -2,7 +2,19 @@
 <div class="main">
     <div class="section-list">
         <?php
-            global $query_string;
+            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+            $args = array(
+                'posts_per_page'   => 1,
+                'paged'            => $paged,
+                'offset'           => 0,
+                'orderby'          => 'post_date',
+                'order'            => 'DESC',
+                'post_type'        => array('post', 'link', 'sequence'),
+                'post_status'      => 'publish',
+                'suppress_filters' => true,
+                's'                => get_search_query()
+            );
+            $query = new WP_Query( $args );
             if( have_posts() ) : ?>
             <header class="section-header">
                 <h1 class="page-title">
@@ -12,9 +24,9 @@
                 </h1>
             </header>
         <?php
-            while ( have_posts() ) : the_post();
+            foreach ( $query->posts as $post ) { 
                 get_template_part( 'content', 'search' );
-            endwhile;
+            }
             wp_reset_query();
         else:
             get_template_part( 'no-results', 'search' );
