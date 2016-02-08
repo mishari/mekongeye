@@ -32,7 +32,6 @@
             get_template_part( 'no-results', 'search' );
         endif;
         ?>
-    </div>
     <?php
         echo paginate_links( array(
             'base' => '%_%',
@@ -41,5 +40,6 @@
             'total' => $query->max_num_pages
     ) );
     ?>
+    </div>
 </div>
 <?php get_footer(); ?>
