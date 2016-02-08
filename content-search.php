@@ -14,6 +14,7 @@
                 $thumbnail = get_the_post_thumbnail( $post->ID );
                 echo $thumbnail;
             ?>
+                </a>
         </div>
         <div class="post-list-post-content">
             <?php
