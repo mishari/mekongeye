@@ -19,10 +19,10 @@
         <div class="post-list-post-content">
             <h2>
                 <?php
-                $kicker = wp_get_post_terms($post->ID, 'pub_type', array('fields' => 'names'));
-                if ($kicker[0] != '') {
+                $pub_name = get_post_meta( $post->ID, 'pub_name', true);
+                if ($pub_name != '') {
                 ?>
-                    <p class="kicker"><?php echo $kicker[0]; ?></p>
+                    <p class="kicker"><?php echo $pub_name;?></p>
                 <?php
                 }
                 ?>
