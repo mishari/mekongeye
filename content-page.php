@@ -19,7 +19,6 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array(
     'posts_per_page'   => 10,
     'paged'            => $paged,
-    'offset'           => 0,
     'orderby'          => 'post_date',
     'order'            => 'DESC',
     'post_type'        => array('post', 'link', 'sequence'),
@@ -160,7 +159,7 @@ $('#map-group li a').click(function() {
         </div>
         <?php
             echo paginate_links( array(
-                'base' => '%_%',
+                'base' => "?paged=%#%",
                 'format' => '?paged=%#%',
                 'current' => max( 1, get_query_var('paged') ),
                 'total' => $query->max_num_pages

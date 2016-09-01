@@ -15,9 +15,10 @@ $region_desc = $region[0]->description;
 $pub_type = wp_get_post_terms($id, 'pub_type', array('fields' => 'all'));
 $pub_type_name = $pub_type[0]->name;
 $pub_type_desc = $pub_type[0]->description;
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array(
     'posts_per_page'   => 10,
-    'offset'           => 0,
+    'paged'            => $paged,
     'orderby'          => 'post_date',
     'order'            => 'DESC',
     'post_type'        => array('post', 'link', 'sequence'),
@@ -218,7 +219,7 @@ $map_id = get_post_meta( $post->ID, 'map_id', true);
         </div>
         <?php
             echo paginate_links( array(
-                'base' => '%_%',
+                'base' => "?paged=%#%",
                 'format' => '?paged=%#%',
                 'current' => max( 1, get_query_var('paged') ),
                 'total' => $query->max_num_pages
