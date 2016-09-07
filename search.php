@@ -6,7 +6,6 @@
             $args = array(
                 'posts_per_page'   => 5,
                 'paged'            => $paged,
-                'offset'           => 0,
                 'orderby'          => 'post_date',
                 'order'            => 'DESC',
                 'post_type'        => array('post', 'link', 'sequence'),
